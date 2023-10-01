@@ -1,0 +1,34 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug afl-tmin",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/afl-fuzz", 
+            "args": [
+                "-i", "fuzzgoat/in",
+                "-o", "fuzzgoat/out",
+                "--",
+                "./fuzzgoat/fuzzgoat",
+                "@@"
+            ],
+            "cwd": "${workspaceFolder}",
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "miDebuggerPath": "/usr/bin/gdb",
+            "logging": {
+                "trace": true,
+                "traceResponse": true,
+                "engineLogging": true
+            }
+        }
+    ]
+}

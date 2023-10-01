@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "stdio.h": "c",
+        "config.h": "c",
+        "cstdint": "c",
+        "stdlib.h": "c",
+        "thpool.h": "c",
+        "has_new_bits_simd.h": "c"
+    }
+}
