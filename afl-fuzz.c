@@ -380,7 +380,7 @@ static u64 get_cur_time_us(void) {
 /* Generate a random number (from 0 to limit - 1). This may
    have slight bias. */
 
-static inline u32 UR(u32 limit) {
+static u32 UR(u32 limit) {
 
   if (unlikely(!rand_cnt--)) {
 
@@ -1157,10 +1157,7 @@ EXP_ST void init_count_class16(void) {
 
 }
 
-
-#ifdef WORD_SIZE_64
-
-static inline void classify_counts(u64* mem) {
+static void classify_counts(u64* mem) {
 
   u32 i = MAP_SIZE >> 3;
 
@@ -1184,34 +1181,6 @@ static inline void classify_counts(u64* mem) {
   }
 
 }
-
-#else
-
-static inline void classify_counts(u32* mem) {
-
-  u32 i = MAP_SIZE >> 2;
-
-  while (i--) {
-
-    /* Optimize for sparse bitmaps. */
-
-    if (unlikely(*mem)) {
-
-      u16* mem16 = (u16*)mem;
-
-      mem16[0] = count_class_lookup16[mem16[0]];
-      mem16[1] = count_class_lookup16[mem16[1]];
-
-    }
-
-    mem++;
-
-  }
-
-}
-
-#endif /* ^WORD_SIZE_64 */
-
 
 /* Get rid of shared memory (atexit handler). */
 
@@ -1778,7 +1747,7 @@ check_and_sort:
 
 /* Helper function for maybe_add_auto() */
 
-static inline u8 memcmp_nocase(u8* m1, u8* m2, u32 len) {
+static u8 memcmp_nocase(u8* m1, u8* m2, u32 len) {
 
   while (len--) if (tolower(*(m1++)) ^ tolower(*(m2++))) return 1;
   return 0;
@@ -8225,7 +8194,7 @@ void profile_function() {
     t1 /= iterations; 
 
     // OTIMIZADA
-    ThreadPool* pool = threadpool_create(NUM_THREADS);
+    // ThreadPool* pool = threadpool_create(NUM_THREADS);
 
     clock_gettime(CLOCK_MONOTONIC, &start);
     for (int i = 0; i < iterations; i++) {

@@ -1,0 +1,389 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ms/call  ms/call  name    
+ 75.14      7.80     7.80   796492     0.01     0.01  run_target
+ 10.02      8.84     1.04                             has_new_bits_asm
+  5.49      9.41     0.57      454     1.26    20.44  fuzz_one
+  4.34      9.86     0.45 55870677     0.00     0.00  UR
+  1.54     10.02     0.16   795034     0.00     0.01  common_fuzz_stuff
+  0.87     10.11     0.09   795898     0.00     0.00  write_to_testcase
+  0.58     10.17     0.06    17044     0.00     0.00  show_stats
+  0.48     10.22     0.05  3803972     0.00     0.00  choose_block_len
+  0.48     10.27     0.05      108     0.46     0.62  calibrate_case
+  0.48     10.32     0.05                             _init
+  0.29     10.35     0.03   795033     0.00     0.00  save_if_interesting
+  0.10     10.36     0.01      647     0.02     0.02  has_new_bits
+  0.10     10.37     0.01      148     0.07     0.07  update_bitmap_score
+  0.10     10.38     0.01       36     0.28     0.28  setup_dirs_fds
+  0.00     10.38     0.00    83309     0.00     0.00  DI
+  0.00     10.38     0.00     1435     0.00     0.00  get_runnable_processes
+  0.00     10.38     0.00      647     0.00     0.00  simplify_trace
+  0.00     10.38     0.00      355     0.00     0.00  DFL_ck_free
+  0.00     10.38     0.00      234     0.00     0.00  describe_op
+  0.00     10.38     0.00      108     0.00     0.00  add_to_queue
+  0.00     10.38     0.00      108     0.00     0.00  has_new_bits.constprop.0
+  0.00     10.38     0.00       80     0.00     0.00  mark_as_det_done
+  0.00     10.38     0.00       27     0.00     0.00  DFL_ck_alloc
+  0.00     10.38     0.00       14     0.00     0.00  write_stats_file
+  0.00     10.38     0.00       11     0.00     0.00  maybe_add_auto
+  0.00     10.38     0.00        8     0.00     0.00  delete_files
+  0.00     10.38     0.00        4     0.00     0.00  HandleError(cudaError, char const*, int)
+  0.00     10.38     0.00        2     0.00     0.00  DMS
+  0.00     10.38     0.00        1     0.00     0.00  DFL_ck_strdup
+  0.00     10.38     0.00        1     0.00     0.00  ____nv_dummy_param_ref(void*)
+  0.00     10.38     0.00        1     0.00     0.00  __nv_cudaEntityRegisterCallback(void**)
+  0.00     10.38     0.00        1     0.00     0.00  __nv_save_fatbinhandle_for_managed_rt(void**)
+  0.00     10.38     0.00        1     0.00     0.00  bind_to_free_cpu
+  0.00     10.38     0.00        1     0.00     0.00  check_binary
+  0.00     10.38     0.00        1     0.00     0.00  load_auto
+  0.00     10.38     0.00        1     0.00     0.62  perform_dry_run
+  0.00     10.38     0.00        1     0.00     0.00  pivot_inputs
+  0.00     10.38     0.00        1     0.00     0.00  read_testcases
+  0.00     10.38     0.00        1     0.00     0.00  setup_device_memory
+  0.00     10.38     0.00        1     0.00     0.00  show_init_stats
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012-2022 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 4 byte(s) for 0.10% of 10.38 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[1]     89.5    0.00    9.29                 main [1]
+                0.57    8.71     454/454         fuzz_one [2]
+                0.01    0.00      36/36          setup_dirs_fds [15]
+                0.00    0.00       1/1           perform_dry_run [16]
+                0.00    0.00       6/17044       show_stats [11]
+                0.00    0.00     329/355         DFL_ck_free [20]
+                0.00    0.00       2/27          DFL_ck_alloc [25]
+                0.00    0.00       2/14          write_stats_file [26]
+                0.00    0.00       1/1           setup_device_memory [36]
+                0.00    0.00       1/1435        get_runnable_processes [18]
+                0.00    0.00       1/1           bind_to_free_cpu [31]
+                0.00    0.00       1/1           load_auto [33]
+                0.00    0.00       1/1           read_testcases [35]
+                0.00    0.00       1/1           pivot_inputs [34]
+                0.00    0.00       1/1           check_binary [32]
+                0.00    0.00       1/1           show_init_stats [37]
+-----------------------------------------------
+                0.57    8.71     454/454         main [1]
+[2]     89.4    0.57    8.71     454         fuzz_one [2]
+                0.16    8.04  795034/795034      common_fuzz_stuff [3]
+                0.42    0.00 52066705/55870677     UR [6]
+                0.05    0.03 3803972/3803972     choose_block_len [9]
+                0.01    0.00     594/796492      run_target [4]
+                0.00    0.00      40/148         update_bitmap_score [14]
+                0.00    0.00      61/17044       show_stats [11]
+                0.00    0.00     164/83309       DI [17]
+                0.00    0.00      80/80          mark_as_det_done [24]
+                0.00    0.00      11/11          maybe_add_auto [27]
+-----------------------------------------------
+                0.16    8.04  795034/795034      fuzz_one [2]
+[3]     79.0    0.16    8.04  795034         common_fuzz_stuff [3]
+                7.79    0.00  795034/796492      run_target [4]
+                0.03    0.08  795033/795033      save_if_interesting [7]
+                0.09    0.00  795034/795898      write_to_testcase [8]
+                0.06    0.00   16763/17044       show_stats [11]
+-----------------------------------------------
+                0.01    0.00     594/796492      fuzz_one [2]
+                0.01    0.00     864/796492      calibrate_case [10]
+                7.79    0.00  795034/796492      common_fuzz_stuff [3]
+[4]     75.1    7.80    0.00  796492         run_target [4]
+-----------------------------------------------
+                                                 <spontaneous>
+[5]     10.0    1.04    0.00                 has_new_bits_asm [5]
+-----------------------------------------------
+                0.03    0.00 3803972/55870677     choose_block_len [9]
+                0.42    0.00 52066705/55870677     fuzz_one [2]
+[6]      4.3    0.45    0.00 55870677         UR [6]
+-----------------------------------------------
+                0.03    0.08  795033/795033      common_fuzz_stuff [3]
+[7]      1.0    0.03    0.08  795033         save_if_interesting [7]
+                0.05    0.02     107/108         calibrate_case [10]
+                0.01    0.00     647/647         has_new_bits [13]
+                0.00    0.00     647/647         simplify_trace [19]
+                0.00    0.00     234/234         describe_op [21]
+                0.00    0.00     107/108         add_to_queue [22]
+                0.00    0.00       1/2           DMS [29]
+-----------------------------------------------
+                0.00    0.00     864/795898      calibrate_case [10]
+                0.09    0.00  795034/795898      common_fuzz_stuff [3]
+[8]      0.9    0.09    0.00  795898         write_to_testcase [8]
+-----------------------------------------------
+                0.05    0.03 3803972/3803972     fuzz_one [2]
+[9]      0.8    0.05    0.03 3803972         choose_block_len [9]
+                0.03    0.00 3803972/55870677     UR [6]
+-----------------------------------------------
+                0.00    0.00       1/108         perform_dry_run [16]
+                0.05    0.02     107/108         save_if_interesting [7]
+[10]     0.6    0.05    0.02     108         calibrate_case [10]
+                0.01    0.00     864/796492      run_target [4]
+                0.01    0.00     108/148         update_bitmap_score [14]
+                0.00    0.00     214/17044       show_stats [11]
+                0.00    0.00     864/795898      write_to_testcase [8]
+                0.00    0.00     108/108         has_new_bits.constprop.0 [23]
+-----------------------------------------------
+                0.00    0.00       6/17044       main [1]
+                0.00    0.00      61/17044       fuzz_one [2]
+                0.00    0.00     214/17044       calibrate_case [10]
+                0.06    0.00   16763/17044       common_fuzz_stuff [3]
+[11]     0.6    0.06    0.00   17044         show_stats [11]
+                0.00    0.00   83142/83309       DI [17]
+                0.00    0.00    1434/1435        get_runnable_processes [18]
+                0.00    0.00      12/14          write_stats_file [26]
+-----------------------------------------------
+                                                 <spontaneous>
+[12]     0.5    0.05    0.00                 _init [12]
+-----------------------------------------------
+                0.01    0.00     647/647         save_if_interesting [7]
+[13]     0.1    0.01    0.00     647         has_new_bits [13]
+-----------------------------------------------
+                0.00    0.00      40/148         fuzz_one [2]
+                0.01    0.00     108/148         calibrate_case [10]
+[14]     0.1    0.01    0.00     148         update_bitmap_score [14]
+-----------------------------------------------
+                0.01    0.00      36/36          main [1]
+[15]     0.1    0.01    0.00      36         setup_dirs_fds [15]
+                0.00    0.00      24/27          DFL_ck_alloc [25]
+                0.00    0.00      24/355         DFL_ck_free [20]
+                0.00    0.00       8/8           delete_files [28]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[16]     0.0    0.00    0.00       1         perform_dry_run [16]
+                0.00    0.00       1/108         calibrate_case [10]
+-----------------------------------------------
+                0.00    0.00       3/83309       show_init_stats [37]
+                0.00    0.00     164/83309       fuzz_one [2]
+                0.00    0.00   83142/83309       show_stats [11]
+[17]     0.0    0.00    0.00   83309         DI [17]
+-----------------------------------------------
+                0.00    0.00       1/1435        main [1]
+                0.00    0.00    1434/1435        show_stats [11]
+[18]     0.0    0.00    0.00    1435         get_runnable_processes [18]
+-----------------------------------------------
+                0.00    0.00     647/647         save_if_interesting [7]
+[19]     0.0    0.00    0.00     647         simplify_trace [19]
+-----------------------------------------------
+                0.00    0.00       1/355         read_testcases [35]
+                0.00    0.00       1/355         load_auto [33]
+                0.00    0.00      24/355         setup_dirs_fds [15]
+                0.00    0.00     329/355         main [1]
+[20]     0.0    0.00    0.00     355         DFL_ck_free [20]
+-----------------------------------------------
+                0.00    0.00     234/234         save_if_interesting [7]
+[21]     0.0    0.00    0.00     234         describe_op [21]
+-----------------------------------------------
+                0.00    0.00       1/108         read_testcases [35]
+                0.00    0.00     107/108         save_if_interesting [7]
+[22]     0.0    0.00    0.00     108         add_to_queue [22]
+-----------------------------------------------
+                0.00    0.00     108/108         calibrate_case [10]
+[23]     0.0    0.00    0.00     108         has_new_bits.constprop.0 [23]
+-----------------------------------------------
+                0.00    0.00      80/80          fuzz_one [2]
+[24]     0.0    0.00    0.00      80         mark_as_det_done [24]
+-----------------------------------------------
+                0.00    0.00       1/27          read_testcases [35]
+                0.00    0.00       2/27          main [1]
+                0.00    0.00      24/27          setup_dirs_fds [15]
+[25]     0.0    0.00    0.00      27         DFL_ck_alloc [25]
+-----------------------------------------------
+                0.00    0.00       2/14          main [1]
+                0.00    0.00      12/14          show_stats [11]
+[26]     0.0    0.00    0.00      14         write_stats_file [26]
+-----------------------------------------------
+                0.00    0.00      11/11          fuzz_one [2]
+[27]     0.0    0.00    0.00      11         maybe_add_auto [27]
+-----------------------------------------------
+                0.00    0.00       8/8           setup_dirs_fds [15]
+[28]     0.0    0.00    0.00       8         delete_files [28]
+-----------------------------------------------
+                0.00    0.00       1/2           show_init_stats [37]
+                0.00    0.00       1/2           save_if_interesting [7]
+[29]     0.0    0.00    0.00       2         DMS [29]
+-----------------------------------------------
+                0.00    0.00       1/1           check_binary [32]
+[30]     0.0    0.00    0.00       1         DFL_ck_strdup [30]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[31]     0.0    0.00    0.00       1         bind_to_free_cpu [31]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[32]     0.0    0.00    0.00       1         check_binary [32]
+                0.00    0.00       1/1           DFL_ck_strdup [30]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[33]     0.0    0.00    0.00       1         load_auto [33]
+                0.00    0.00       1/355         DFL_ck_free [20]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[34]     0.0    0.00    0.00       1         pivot_inputs [34]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[35]     0.0    0.00    0.00       1         read_testcases [35]
+                0.00    0.00       1/27          DFL_ck_alloc [25]
+                0.00    0.00       1/108         add_to_queue [22]
+                0.00    0.00       1/355         DFL_ck_free [20]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[36]     0.0    0.00    0.00       1         setup_device_memory [36]
+                0.00    0.00       4/4           HandleError(cudaError, char const*, int) [65]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[37]     0.0    0.00    0.00       1         show_init_stats [37]
+                0.00    0.00       3/83309       DI [17]
+                0.00    0.00       1/2           DMS [29]
+-----------------------------------------------
+                0.00    0.00       4/4           setup_device_memory [36]
+[65]     0.0    0.00    0.00       4         HandleError(cudaError, char const*, int) [65]
+-----------------------------------------------
+                0.00    0.00       1/1           __cudaUnregisterBinaryUtil() [73]
+[66]     0.0    0.00    0.00       1         ____nv_dummy_param_ref(void*) [66]
+-----------------------------------------------
+                0.00    0.00       1/1           __sti____cudaRegisterAll() [72]
+[67]     0.0    0.00    0.00       1         __nv_cudaEntityRegisterCallback(void**) [67]
+                0.00    0.00       1/1           __nv_save_fatbinhandle_for_managed_rt(void**) [68]
+-----------------------------------------------
+                0.00    0.00       1/1           __nv_cudaEntityRegisterCallback(void**) [67]
+[68]     0.0    0.00    0.00       1         __nv_save_fatbinhandle_for_managed_rt(void**) [68]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012-2022 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+  [25] DFL_ck_alloc (alloc-inl.h) [32] check_binary (afl-fuzz.c) [34] pivot_inputs (afl-fuzz.c)
+  [20] DFL_ck_free (alloc-inl.h) [9] choose_block_len (afl-fuzz.c) [35] read_testcases (afl-fuzz.c)
+  [30] DFL_ck_strdup (alloc-inl.h) [3] common_fuzz_stuff (afl-fuzz.c) [4] run_target (afl-fuzz.c)
+  [17] DI (afl-fuzz.c)        [28] delete_files (afl-fuzz.c) [7] save_if_interesting (afl-fuzz.c)
+  [29] DMS (afl-fuzz.c)       [21] describe_op (afl-fuzz.c) [36] setup_device_memory
+   [6] UR (afl-fuzz.c)         [2] fuzz_one (afl-fuzz.c)  [15] setup_dirs_fds (afl-fuzz.c)
+  [65] HandleError(cudaError, char const*, int) [18] get_runnable_processes (afl-fuzz.c) [37] show_init_stats (afl-fuzz.c)
+  [66] ____nv_dummy_param_ref(void*) [13] has_new_bits (afl-fuzz.c) [11] show_stats (afl-fuzz.c)
+  [67] __nv_cudaEntityRegisterCallback(void**) [23] has_new_bits.constprop.0 (afl-fuzz.c) [19] simplify_trace (afl-fuzz.c)
+  [68] __nv_save_fatbinhandle_for_managed_rt(void**) [5] has_new_bits_asm [14] update_bitmap_score (afl-fuzz.c)
+  [12] _init                  [33] load_auto (afl-fuzz.c) [26] write_stats_file (afl-fuzz.c)
+  [22] add_to_queue (afl-fuzz.c) [24] mark_as_det_done (afl-fuzz.c) [8] write_to_testcase (afl-fuzz.c)
+  [31] bind_to_free_cpu (afl-fuzz.c) [27] maybe_add_auto (afl-fuzz.c)
+  [10] calibrate_case (afl-fuzz.c) [16] perform_dry_run (afl-fuzz.c)

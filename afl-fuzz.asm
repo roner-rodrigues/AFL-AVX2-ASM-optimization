@@ -26,7 +26,7 @@ Disassembly of section .text:
     38a1:	e8 9a f7 ff ff       	call   3040 <getenv@plt>
     38a6:	48 89 85 60 fe ff ff 	mov    QWORD PTR [rbp-0x1a0],rax
     38ad:	31 c0                	xor    eax,eax
-    38af:	e8 7b a9 01 00       	call   1e22f <setup_device_memory>
+    38af:	e8 5b a9 01 00       	call   1e20f <setup_device_memory>
     38b4:	48 8d 3d 1d 1f 02 00 	lea    rdi,[rip+0x21f1d]        # 257d8 <_IO_stdin_used+0x67d8>
     38bb:	e8 90 f8 ff ff       	call   3150 <puts@plt>
     38c0:	31 f6                	xor    esi,esi
@@ -927,7 +927,7 @@ Disassembly of section .text:
     49c4:	85 c0                	test   eax,eax
     49c6:	0f 88 75 12 00 00    	js     5c41 <main+0x23e1>
     49cc:	48 8d 3d 6d 1c 00 00 	lea    rdi,[rip+0x1c6d]        # 6640 <remove_shm>
-    49d3:	e8 78 a3 01 00       	call   1ed50 <atexit>
+    49d3:	e8 58 a3 01 00       	call   1ed30 <atexit>
     49d8:	48 83 c9 ff          	or     rcx,0xffffffffffffffff
     49dc:	31 f6                	xor    esi,esi
     49de:	45 89 e9             	mov    r9d,r13d
@@ -2313,14 +2313,14 @@ Disassembly of section .text:
     62fe:	c3                   	ret    
     62ff:	90                   	nop
     6300:	48 83 ec 08          	sub    rsp,0x8
-    6304:	48 8d 35 82 8a 01 00 	lea    rsi,[rip+0x18a82]        # 1ed8d <etext>
+    6304:	48 8d 35 62 8a 01 00 	lea    rsi,[rip+0x18a62]        # 1ed6d <etext>
     630b:	48 8d 3d ee 9c ff ff 	lea    rdi,[rip+0xffffffffffff9cee]        # 0 <__executable_start>
     6312:	c7 05 8c ad 02 00 01 	mov    DWORD PTR [rip+0x2ad8c],0x1        # 310a8 <called.0>
     6319:	00 00 00 
     631c:	e8 cf d0 ff ff       	call   33f0 <__monstartup@plt>
     6321:	48 8b 3d b0 ac 02 00 	mov    rdi,QWORD PTR [rip+0x2acb0]        # 30fd8 <_mcleanup@GLIBC_2.2.5>
     6328:	48 83 c4 08          	add    rsp,0x8
-    632c:	e9 1f 8a 01 00       	jmp    1ed50 <atexit>
+    632c:	e9 ff 89 01 00       	jmp    1ed30 <atexit>
     6331:	66 2e 0f 1f 84 00 00 	cs nop WORD PTR [rax+rax*1+0x0]
     6338:	00 00 00 
     633b:	0f 1f 44 00 00       	nop    DWORD PTR [rax+rax*1+0x0]
@@ -16898,7 +16898,7 @@ Disassembly of section .text:
    158c0:	48 8b 3d 19 61 3c 00 	mov    rdi,QWORD PTR [rip+0x3c6119]        # 3db9e0 <trace_bits>
    158c7:	48 8d 15 63 b7 01 00 	lea    rdx,[rip+0x1b763]        # 31031 <bitmap_changed>
    158ce:	48 8d 35 0b 61 38 00 	lea    rsi,[rip+0x38610b]        # 39b9e0 <virgin_bits>
-   158d5:	e8 66 88 00 00       	call   1e140 <has_new_bits_asm>
+   158d5:	e8 46 88 00 00       	call   1e120 <has_new_bits_asm>
    158da:	84 c0                	test   al,al
    158dc:	75 22                	jne    15900 <save_if_interesting+0x430>
    158de:	44 0f b6 3d 1d 61 3c 	movzx  r15d,BYTE PTR [rip+0x3c611d]        # 3dba03 <crash_mode>
@@ -24306,7 +24306,7 @@ Disassembly of section .text:
    1dcbe:	f2 0f 5e 05 ba 9f 00 	divsd  xmm0,QWORD PTR [rip+0x9fba]        # 27c80 <interesting_8+0xf8>
    1dcc5:	00 
    1dcc6:	f2 0f 11 45 98       	movsd  QWORD PTR [rbp-0x68],xmm0
-   1dccb:	e8 63 0d 00 00       	call   1ea33 <threadpool_create>
+   1dccb:	e8 43 0d 00 00       	call   1ea13 <threadpool_create>
    1dcd0:	4c 89 fe             	mov    rsi,r15
    1dcd3:	bf 01 00 00 00       	mov    edi,0x1
    1dcd8:	41 bf 64 00 00 00    	mov    r15d,0x64
@@ -24316,52 +24316,52 @@ Disassembly of section .text:
    1dceb:	4c 89 ee             	mov    rsi,r13
    1dcee:	4c 89 e7             	mov    rdi,r12
    1dcf1:	31 c0                	xor    eax,eax
-   1dcf3:	e8 48 04 00 00       	call   1e140 <has_new_bits_asm>
+   1dcf3:	e8 28 04 00 00       	call   1e120 <has_new_bits_asm>
    1dcf8:	48 89 da             	mov    rdx,rbx
    1dcfb:	4c 89 ee             	mov    rsi,r13
    1dcfe:	4c 89 e7             	mov    rdi,r12
    1dd01:	31 c0                	xor    eax,eax
-   1dd03:	e8 38 04 00 00       	call   1e140 <has_new_bits_asm>
+   1dd03:	e8 18 04 00 00       	call   1e120 <has_new_bits_asm>
    1dd08:	48 89 da             	mov    rdx,rbx
    1dd0b:	4c 89 ee             	mov    rsi,r13
    1dd0e:	4c 89 e7             	mov    rdi,r12
    1dd11:	31 c0                	xor    eax,eax
-   1dd13:	e8 28 04 00 00       	call   1e140 <has_new_bits_asm>
+   1dd13:	e8 08 04 00 00       	call   1e120 <has_new_bits_asm>
    1dd18:	48 89 da             	mov    rdx,rbx
    1dd1b:	4c 89 ee             	mov    rsi,r13
    1dd1e:	4c 89 e7             	mov    rdi,r12
    1dd21:	31 c0                	xor    eax,eax
-   1dd23:	e8 18 04 00 00       	call   1e140 <has_new_bits_asm>
+   1dd23:	e8 f8 03 00 00       	call   1e120 <has_new_bits_asm>
    1dd28:	48 89 da             	mov    rdx,rbx
    1dd2b:	4c 89 ee             	mov    rsi,r13
    1dd2e:	4c 89 e7             	mov    rdi,r12
    1dd31:	31 c0                	xor    eax,eax
-   1dd33:	e8 08 04 00 00       	call   1e140 <has_new_bits_asm>
+   1dd33:	e8 e8 03 00 00       	call   1e120 <has_new_bits_asm>
    1dd38:	48 89 da             	mov    rdx,rbx
    1dd3b:	4c 89 ee             	mov    rsi,r13
    1dd3e:	4c 89 e7             	mov    rdi,r12
    1dd41:	31 c0                	xor    eax,eax
-   1dd43:	e8 f8 03 00 00       	call   1e140 <has_new_bits_asm>
+   1dd43:	e8 d8 03 00 00       	call   1e120 <has_new_bits_asm>
    1dd48:	48 89 da             	mov    rdx,rbx
    1dd4b:	4c 89 ee             	mov    rsi,r13
    1dd4e:	4c 89 e7             	mov    rdi,r12
    1dd51:	31 c0                	xor    eax,eax
-   1dd53:	e8 e8 03 00 00       	call   1e140 <has_new_bits_asm>
+   1dd53:	e8 c8 03 00 00       	call   1e120 <has_new_bits_asm>
    1dd58:	48 89 da             	mov    rdx,rbx
    1dd5b:	4c 89 ee             	mov    rsi,r13
    1dd5e:	4c 89 e7             	mov    rdi,r12
    1dd61:	31 c0                	xor    eax,eax
-   1dd63:	e8 d8 03 00 00       	call   1e140 <has_new_bits_asm>
+   1dd63:	e8 b8 03 00 00       	call   1e120 <has_new_bits_asm>
    1dd68:	48 89 da             	mov    rdx,rbx
    1dd6b:	4c 89 ee             	mov    rsi,r13
    1dd6e:	4c 89 e7             	mov    rdi,r12
    1dd71:	31 c0                	xor    eax,eax
-   1dd73:	e8 c8 03 00 00       	call   1e140 <has_new_bits_asm>
+   1dd73:	e8 a8 03 00 00       	call   1e120 <has_new_bits_asm>
    1dd78:	31 c0                	xor    eax,eax
    1dd7a:	48 89 da             	mov    rdx,rbx
    1dd7d:	4c 89 ee             	mov    rsi,r13
    1dd80:	4c 89 e7             	mov    rdi,r12
-   1dd83:	e8 b8 03 00 00       	call   1e140 <has_new_bits_asm>
+   1dd83:	e8 98 03 00 00       	call   1e120 <has_new_bits_asm>
    1dd88:	41 83 ef 0a          	sub    r15d,0xa
    1dd8c:	0f 85 56 ff ff ff    	jne    1dce8 <profile_function+0x158>
    1dd92:	48 8b 75 90          	mov    rsi,QWORD PTR [rbp-0x70]
@@ -24470,1008 +24470,997 @@ Disassembly of section .text:
    1df66:	e8 d5 56 fe ff       	call   3640 <perror@plt>
    1df6b:	bf 01 00 00 00       	mov    edi,0x1
    1df70:	e8 8b 57 fe ff       	call   3700 <exit@plt>
+   1df75:	66 2e 0f 1f 84 00 00 	cs nop WORD PTR [rax+rax*1+0x0]
+   1df7c:	00 00 00 
+   1df7f:	90                   	nop
 
-000000000001df75 <has_new_bits_simd>:
-   1df75:	f3 0f 1e fa          	endbr64 
-   1df79:	55                   	push   rbp
-   1df7a:	48 89 e5             	mov    rbp,rsp
-   1df7d:	48 83 e4 e0          	and    rsp,0xffffffffffffffe0
-   1df81:	48 81 ec c0 01 00 00 	sub    rsp,0x1c0
-   1df88:	ff 15 52 30 01 00    	call   QWORD PTR [rip+0x13052]        # 30fe0 <mcount@GLIBC_2.2.5>
-   1df8e:	48 89 7c 24 28       	mov    QWORD PTR [rsp+0x28],rdi
-   1df93:	48 89 74 24 20       	mov    QWORD PTR [rsp+0x20],rsi
-   1df98:	48 89 54 24 18       	mov    QWORD PTR [rsp+0x18],rdx
-   1df9d:	48 8b 44 24 28       	mov    rax,QWORD PTR [rsp+0x28]
-   1dfa2:	48 89 44 24 38       	mov    QWORD PTR [rsp+0x38],rax
-   1dfa7:	48 8b 44 24 20       	mov    rax,QWORD PTR [rsp+0x20]
-   1dfac:	48 89 44 24 40       	mov    QWORD PTR [rsp+0x40],rax
-   1dfb1:	c6 44 24 33 00       	mov    BYTE PTR [rsp+0x33],0x0
-   1dfb6:	c7 44 24 34 00 00 00 	mov    DWORD PTR [rsp+0x34],0x0
-   1dfbd:	00 
-   1dfbe:	e9 58 01 00 00       	jmp    1e11b <has_new_bits_simd+0x1a6>
-   1dfc3:	8b 44 24 34          	mov    eax,DWORD PTR [rsp+0x34]
-   1dfc7:	48 c1 e0 05          	shl    rax,0x5
-   1dfcb:	48 89 c2             	mov    rdx,rax
-   1dfce:	48 8b 44 24 38       	mov    rax,QWORD PTR [rsp+0x38]
-   1dfd3:	48 01 d0             	add    rax,rdx
-   1dfd6:	48 89 44 24 50       	mov    QWORD PTR [rsp+0x50],rax
-   1dfdb:	48 8b 44 24 50       	mov    rax,QWORD PTR [rsp+0x50]
-   1dfe0:	c5 fd 6f 00          	vmovdqa ymm0,YMMWORD PTR [rax]
-   1dfe4:	c5 fd 7f 44 24 60    	vmovdqa YMMWORD PTR [rsp+0x60],ymm0
-   1dfea:	8b 44 24 34          	mov    eax,DWORD PTR [rsp+0x34]
-   1dfee:	48 c1 e0 05          	shl    rax,0x5
-   1dff2:	48 89 c2             	mov    rdx,rax
-   1dff5:	48 8b 44 24 40       	mov    rax,QWORD PTR [rsp+0x40]
-   1dffa:	48 01 d0             	add    rax,rdx
-   1dffd:	48 89 44 24 48       	mov    QWORD PTR [rsp+0x48],rax
-   1e002:	48 8b 44 24 48       	mov    rax,QWORD PTR [rsp+0x48]
-   1e007:	c5 fd 6f 00          	vmovdqa ymm0,YMMWORD PTR [rax]
-   1e00b:	c5 fd 7f 84 24 80 00 	vmovdqa YMMWORD PTR [rsp+0x80],ymm0
-   1e012:	00 00 
-   1e014:	c5 fd 6f 44 24 60    	vmovdqa ymm0,YMMWORD PTR [rsp+0x60]
-   1e01a:	c5 fd 7f 84 24 20 01 	vmovdqa YMMWORD PTR [rsp+0x120],ymm0
-   1e021:	00 00 
-   1e023:	c5 fd 6f 84 24 80 00 	vmovdqa ymm0,YMMWORD PTR [rsp+0x80]
-   1e02a:	00 00 
-   1e02c:	c5 fd 7f 84 24 40 01 	vmovdqa YMMWORD PTR [rsp+0x140],ymm0
-   1e033:	00 00 
-   1e035:	c5 fd 6f 8c 24 20 01 	vmovdqa ymm1,YMMWORD PTR [rsp+0x120]
-   1e03c:	00 00 
-   1e03e:	c5 fd 6f 84 24 40 01 	vmovdqa ymm0,YMMWORD PTR [rsp+0x140]
-   1e045:	00 00 
-   1e047:	c5 f5 db c0          	vpand  ymm0,ymm1,ymm0
-   1e04b:	c5 fd 7f 84 24 a0 00 	vmovdqa YMMWORD PTR [rsp+0xa0],ymm0
-   1e052:	00 00 
-   1e054:	c5 fd 6f 84 24 a0 00 	vmovdqa ymm0,YMMWORD PTR [rsp+0xa0]
-   1e05b:	00 00 
-   1e05d:	c5 fd 7f 84 24 e0 00 	vmovdqa YMMWORD PTR [rsp+0xe0],ymm0
-   1e064:	00 00 
-   1e066:	c5 fd 6f 84 24 a0 00 	vmovdqa ymm0,YMMWORD PTR [rsp+0xa0]
-   1e06d:	00 00 
-   1e06f:	c5 fd 7f 84 24 00 01 	vmovdqa YMMWORD PTR [rsp+0x100],ymm0
-   1e076:	00 00 
-   1e078:	b8 00 00 00 00       	mov    eax,0x0
-   1e07d:	c5 fd 6f 84 24 e0 00 	vmovdqa ymm0,YMMWORD PTR [rsp+0xe0]
-   1e084:	00 00 
-   1e086:	c4 e2 7d 17 84 24 00 	vptest ymm0,YMMWORD PTR [rsp+0x100]
-   1e08d:	01 00 00 
-   1e090:	0f 94 c0             	sete   al
-   1e093:	85 c0                	test   eax,eax
-   1e095:	75 7f                	jne    1e116 <has_new_bits_simd+0x1a1>
-   1e097:	c6 44 24 33 01       	mov    BYTE PTR [rsp+0x33],0x1
-   1e09c:	c5 fd 6f 44 24 60    	vmovdqa ymm0,YMMWORD PTR [rsp+0x60]
-   1e0a2:	c5 fd 7f 84 24 80 01 	vmovdqa YMMWORD PTR [rsp+0x180],ymm0
-   1e0a9:	00 00 
-   1e0ab:	c5 fd 6f 84 24 80 00 	vmovdqa ymm0,YMMWORD PTR [rsp+0x80]
-   1e0b2:	00 00 
-   1e0b4:	c5 fd 7f 84 24 a0 01 	vmovdqa YMMWORD PTR [rsp+0x1a0],ymm0
-   1e0bb:	00 00 
-   1e0bd:	c5 fd 6f 84 24 80 01 	vmovdqa ymm0,YMMWORD PTR [rsp+0x180]
-   1e0c4:	00 00 
-   1e0c6:	c5 fd df 84 24 a0 01 	vpandn ymm0,ymm0,YMMWORD PTR [rsp+0x1a0]
-   1e0cd:	00 00 
-   1e0cf:	90                   	nop
-   1e0d0:	c5 fd 7f 84 24 c0 00 	vmovdqa YMMWORD PTR [rsp+0xc0],ymm0
-   1e0d7:	00 00 
-   1e0d9:	8b 44 24 34          	mov    eax,DWORD PTR [rsp+0x34]
-   1e0dd:	48 c1 e0 05          	shl    rax,0x5
-   1e0e1:	48 89 c2             	mov    rdx,rax
-   1e0e4:	48 8b 44 24 40       	mov    rax,QWORD PTR [rsp+0x40]
-   1e0e9:	48 01 d0             	add    rax,rdx
-   1e0ec:	48 89 44 24 58       	mov    QWORD PTR [rsp+0x58],rax
-   1e0f1:	c5 fd 6f 84 24 c0 00 	vmovdqa ymm0,YMMWORD PTR [rsp+0xc0]
-   1e0f8:	00 00 
-   1e0fa:	c5 fd 7f 84 24 60 01 	vmovdqa YMMWORD PTR [rsp+0x160],ymm0
-   1e101:	00 00 
-   1e103:	48 8b 44 24 58       	mov    rax,QWORD PTR [rsp+0x58]
-   1e108:	c5 fd 6f 84 24 60 01 	vmovdqa ymm0,YMMWORD PTR [rsp+0x160]
-   1e10f:	00 00 
-   1e111:	c5 fd 7f 00          	vmovdqa YMMWORD PTR [rax],ymm0
-   1e115:	90                   	nop
-   1e116:	83 44 24 34 01       	add    DWORD PTR [rsp+0x34],0x1
-   1e11b:	81 7c 24 34 ff 0f 00 	cmp    DWORD PTR [rsp+0x34],0xfff
-   1e122:	00 
-   1e123:	0f 86 9a fe ff ff    	jbe    1dfc3 <has_new_bits_simd+0x4e>
-   1e129:	80 7c 24 33 00       	cmp    BYTE PTR [rsp+0x33],0x0
-   1e12e:	74 08                	je     1e138 <has_new_bits_simd+0x1c3>
-   1e130:	48 8b 44 24 18       	mov    rax,QWORD PTR [rsp+0x18]
-   1e135:	c6 00 01             	mov    BYTE PTR [rax],0x1
-   1e138:	0f b6 44 24 33       	movzx  eax,BYTE PTR [rsp+0x33]
-   1e13d:	c9                   	leave  
-   1e13e:	c3                   	ret    
-   1e13f:	90                   	nop
+000000000001df80 <has_new_bits_simd>:
+   1df80:	f3 0f 1e fa          	endbr64 
+   1df84:	55                   	push   rbp
+   1df85:	48 89 e5             	mov    rbp,rsp
+   1df88:	48 83 e4 e0          	and    rsp,0xffffffffffffffe0
+   1df8c:	ff 15 4e 30 01 00    	call   QWORD PTR [rip+0x1304e]        # 30fe0 <mcount@GLIBC_2.2.5>
+   1df92:	31 c9                	xor    ecx,ecx
+   1df94:	45 31 c0             	xor    r8d,r8d
+   1df97:	66 0f 1f 84 00 00 00 	nop    WORD PTR [rax+rax*1+0x0]
+   1df9e:	00 00 
+   1dfa0:	c5 fd 6f 04 0f       	vmovdqa ymm0,YMMWORD PTR [rdi+rcx*1]
+   1dfa5:	c5 fd 6f 14 0e       	vmovdqa ymm2,YMMWORD PTR [rsi+rcx*1]
+   1dfaa:	c5 ed db c8          	vpand  ymm1,ymm2,ymm0
+   1dfae:	c4 e2 7d 17 c9       	vptest ymm1,ymm1
+   1dfb3:	74 0f                	je     1dfc4 <has_new_bits_simd+0x44>
+   1dfb5:	c5 fd df da          	vpandn ymm3,ymm0,ymm2
+   1dfb9:	41 b8 01 00 00 00    	mov    r8d,0x1
+   1dfbf:	c5 fd 7f 1c 0e       	vmovdqa YMMWORD PTR [rsi+rcx*1],ymm3
+   1dfc4:	c5 fd 6f 64 0f 20    	vmovdqa ymm4,YMMWORD PTR [rdi+rcx*1+0x20]
+   1dfca:	c5 fd 6f 6c 0e 20    	vmovdqa ymm5,YMMWORD PTR [rsi+rcx*1+0x20]
+   1dfd0:	48 8d 41 20          	lea    rax,[rcx+0x20]
+   1dfd4:	c5 d5 db f4          	vpand  ymm6,ymm5,ymm4
+   1dfd8:	c4 e2 7d 17 f6       	vptest ymm6,ymm6
+   1dfdd:	74 10                	je     1dfef <has_new_bits_simd+0x6f>
+   1dfdf:	c5 dd df fd          	vpandn ymm7,ymm4,ymm5
+   1dfe3:	41 b8 01 00 00 00    	mov    r8d,0x1
+   1dfe9:	c5 fd 7f 7c 0e 20    	vmovdqa YMMWORD PTR [rsi+rcx*1+0x20],ymm7
+   1dfef:	c5 7d 6f 44 07 20    	vmovdqa ymm8,YMMWORD PTR [rdi+rax*1+0x20]
+   1dff5:	c5 7d 6f 4c 06 20    	vmovdqa ymm9,YMMWORD PTR [rsi+rax*1+0x20]
+   1dffb:	c4 41 35 db d0       	vpand  ymm10,ymm9,ymm8
+   1e000:	c4 42 7d 17 d2       	vptest ymm10,ymm10
+   1e005:	74 11                	je     1e018 <has_new_bits_simd+0x98>
+   1e007:	c4 41 3d df d9       	vpandn ymm11,ymm8,ymm9
+   1e00c:	41 b8 01 00 00 00    	mov    r8d,0x1
+   1e012:	c5 7d 7f 5c 06 20    	vmovdqa YMMWORD PTR [rsi+rax*1+0x20],ymm11
+   1e018:	c5 7d 6f 64 07 40    	vmovdqa ymm12,YMMWORD PTR [rdi+rax*1+0x40]
+   1e01e:	c5 7d 6f 6c 06 40    	vmovdqa ymm13,YMMWORD PTR [rsi+rax*1+0x40]
+   1e024:	c4 41 15 db f4       	vpand  ymm14,ymm13,ymm12
+   1e029:	c4 42 7d 17 f6       	vptest ymm14,ymm14
+   1e02e:	74 11                	je     1e041 <has_new_bits_simd+0xc1>
+   1e030:	c4 41 1d df fd       	vpandn ymm15,ymm12,ymm13
+   1e035:	41 b8 01 00 00 00    	mov    r8d,0x1
+   1e03b:	c5 7d 7f 7c 06 40    	vmovdqa YMMWORD PTR [rsi+rax*1+0x40],ymm15
+   1e041:	c5 fd 6f 44 07 60    	vmovdqa ymm0,YMMWORD PTR [rdi+rax*1+0x60]
+   1e047:	c5 fd 6f 54 06 60    	vmovdqa ymm2,YMMWORD PTR [rsi+rax*1+0x60]
+   1e04d:	c5 ed db c8          	vpand  ymm1,ymm2,ymm0
+   1e051:	c4 e2 7d 17 c9       	vptest ymm1,ymm1
+   1e056:	74 10                	je     1e068 <has_new_bits_simd+0xe8>
+   1e058:	c5 fd df da          	vpandn ymm3,ymm0,ymm2
+   1e05c:	41 b8 01 00 00 00    	mov    r8d,0x1
+   1e062:	c5 fd 7f 5c 06 60    	vmovdqa YMMWORD PTR [rsi+rax*1+0x60],ymm3
+   1e068:	c5 fd 6f a4 07 80 00 	vmovdqa ymm4,YMMWORD PTR [rdi+rax*1+0x80]
+   1e06f:	00 00 
+   1e071:	c5 fd 6f ac 06 80 00 	vmovdqa ymm5,YMMWORD PTR [rsi+rax*1+0x80]
+   1e078:	00 00 
+   1e07a:	c5 d5 db f4          	vpand  ymm6,ymm5,ymm4
+   1e07e:	c4 e2 7d 17 f6       	vptest ymm6,ymm6
+   1e083:	74 13                	je     1e098 <has_new_bits_simd+0x118>
+   1e085:	c5 dd df fd          	vpandn ymm7,ymm4,ymm5
+   1e089:	41 b8 01 00 00 00    	mov    r8d,0x1
+   1e08f:	c5 fd 7f bc 06 80 00 	vmovdqa YMMWORD PTR [rsi+rax*1+0x80],ymm7
+   1e096:	00 00 
+   1e098:	c5 7d 6f 84 07 a0 00 	vmovdqa ymm8,YMMWORD PTR [rdi+rax*1+0xa0]
+   1e09f:	00 00 
+   1e0a1:	c5 7d 6f 8c 06 a0 00 	vmovdqa ymm9,YMMWORD PTR [rsi+rax*1+0xa0]
+   1e0a8:	00 00 
+   1e0aa:	c4 41 35 db d0       	vpand  ymm10,ymm9,ymm8
+   1e0af:	c4 42 7d 17 d2       	vptest ymm10,ymm10
+   1e0b4:	74 14                	je     1e0ca <has_new_bits_simd+0x14a>
+   1e0b6:	c4 41 3d df d9       	vpandn ymm11,ymm8,ymm9
+   1e0bb:	41 b8 01 00 00 00    	mov    r8d,0x1
+   1e0c1:	c5 7d 7f 9c 06 a0 00 	vmovdqa YMMWORD PTR [rsi+rax*1+0xa0],ymm11
+   1e0c8:	00 00 
+   1e0ca:	c5 7d 6f a4 07 c0 00 	vmovdqa ymm12,YMMWORD PTR [rdi+rax*1+0xc0]
+   1e0d1:	00 00 
+   1e0d3:	c5 7d 6f ac 06 c0 00 	vmovdqa ymm13,YMMWORD PTR [rsi+rax*1+0xc0]
+   1e0da:	00 00 
+   1e0dc:	c4 41 15 db f4       	vpand  ymm14,ymm13,ymm12
+   1e0e1:	c4 42 7d 17 f6       	vptest ymm14,ymm14
+   1e0e6:	74 14                	je     1e0fc <has_new_bits_simd+0x17c>
+   1e0e8:	c4 41 1d df fd       	vpandn ymm15,ymm12,ymm13
+   1e0ed:	41 b8 01 00 00 00    	mov    r8d,0x1
+   1e0f3:	c5 7d 7f bc 06 c0 00 	vmovdqa YMMWORD PTR [rsi+rax*1+0xc0],ymm15
+   1e0fa:	00 00 
+   1e0fc:	48 8d 88 e0 00 00 00 	lea    rcx,[rax+0xe0]
+   1e103:	48 3d 20 ff 03 00    	cmp    rax,0x3ff20
+   1e109:	0f 85 91 fe ff ff    	jne    1dfa0 <has_new_bits_simd+0x20>
+   1e10f:	45 84 c0             	test   r8b,r8b
+   1e112:	74 03                	je     1e117 <has_new_bits_simd+0x197>
+   1e114:	c6 02 01             	mov    BYTE PTR [rdx],0x1
+   1e117:	44 89 c0             	mov    eax,r8d
+   1e11a:	c5 f8 77             	vzeroupper 
+   1e11d:	c9                   	leave  
+   1e11e:	c3                   	ret    
+   1e11f:	90                   	nop
 
-000000000001e140 <has_new_bits_asm>:
-   1e140:	b9 00 00 04 00       	mov    ecx,0x40000
-   1e145:	c1 e9 03             	shr    ecx,0x3
-   1e148:	45 30 c0             	xor    r8b,r8b
+000000000001e120 <has_new_bits_asm>:
+   1e120:	b9 00 00 04 00       	mov    ecx,0x40000
+   1e125:	c1 e9 03             	shr    ecx,0x3
+   1e128:	45 30 c0             	xor    r8b,r8b
 
-000000000001e14b <has_new_bits_asm.loop>:
-   1e14b:	48 8b 07             	mov    rax,QWORD PTR [rdi]
-   1e14e:	48 85 c0             	test   rax,rax
-   1e151:	74 3d                	je     1e190 <has_new_bits_asm.next_iteration>
-   1e153:	48 23 06             	and    rax,QWORD PTR [rsi]
-   1e156:	48 85 c0             	test   rax,rax
-   1e159:	74 35                	je     1e190 <has_new_bits_asm.next_iteration>
-   1e15b:	41 80 f8 02          	cmp    r8b,0x2
-   1e15f:	73 26                	jae    1e187 <has_new_bits_asm.update_virgin_bits>
-   1e161:	4d 31 c9             	xor    r9,r9
+000000000001e12b <has_new_bits_asm.loop>:
+   1e12b:	48 8b 07             	mov    rax,QWORD PTR [rdi]
+   1e12e:	48 85 c0             	test   rax,rax
+   1e131:	74 3d                	je     1e170 <has_new_bits_asm.next_iteration>
+   1e133:	48 23 06             	and    rax,QWORD PTR [rsi]
+   1e136:	48 85 c0             	test   rax,rax
+   1e139:	74 35                	je     1e170 <has_new_bits_asm.next_iteration>
+   1e13b:	41 80 f8 02          	cmp    r8b,0x2
+   1e13f:	73 26                	jae    1e167 <has_new_bits_asm.update_virgin_bits>
+   1e141:	4d 31 c9             	xor    r9,r9
 
-000000000001e164 <has_new_bits_asm.byte_loop>:
-   1e164:	42 8a 04 0f          	mov    al,BYTE PTR [rdi+r9*1]
-   1e168:	84 c0                	test   al,al
-   1e16a:	74 0c                	je     1e178 <has_new_bits_asm.next_byte>
-   1e16c:	42 80 3c 0e ff       	cmp    BYTE PTR [rsi+r9*1],0xff
-   1e171:	75 05                	jne    1e178 <has_new_bits_asm.next_byte>
-   1e173:	41 b0 02             	mov    r8b,0x2
-   1e176:	eb 0f                	jmp    1e187 <has_new_bits_asm.update_virgin_bits>
+000000000001e144 <has_new_bits_asm.byte_loop>:
+   1e144:	42 8a 04 0f          	mov    al,BYTE PTR [rdi+r9*1]
+   1e148:	84 c0                	test   al,al
+   1e14a:	74 0c                	je     1e158 <has_new_bits_asm.next_byte>
+   1e14c:	42 80 3c 0e ff       	cmp    BYTE PTR [rsi+r9*1],0xff
+   1e151:	75 05                	jne    1e158 <has_new_bits_asm.next_byte>
+   1e153:	41 b0 02             	mov    r8b,0x2
+   1e156:	eb 0f                	jmp    1e167 <has_new_bits_asm.update_virgin_bits>
 
-000000000001e178 <has_new_bits_asm.next_byte>:
-   1e178:	49 ff c1             	inc    r9
-   1e17b:	49 83 f9 08          	cmp    r9,0x8
-   1e17f:	7c e3                	jl     1e164 <has_new_bits_asm.byte_loop>
-   1e181:	41 80 f8 00          	cmp    r8b,0x0
-   1e185:	74 17                	je     1e19e <has_new_bits_asm.set_ret_one>
+000000000001e158 <has_new_bits_asm.next_byte>:
+   1e158:	49 ff c1             	inc    r9
+   1e15b:	49 83 f9 08          	cmp    r9,0x8
+   1e15f:	7c e3                	jl     1e144 <has_new_bits_asm.byte_loop>
+   1e161:	41 80 f8 00          	cmp    r8b,0x0
+   1e165:	74 17                	je     1e17e <has_new_bits_asm.set_ret_one>
 
-000000000001e187 <has_new_bits_asm.update_virgin_bits>:
-   1e187:	48 8b 07             	mov    rax,QWORD PTR [rdi]
-   1e18a:	48 f7 d0             	not    rax
-   1e18d:	48 21 06             	and    QWORD PTR [rsi],rax
+000000000001e167 <has_new_bits_asm.update_virgin_bits>:
+   1e167:	48 8b 07             	mov    rax,QWORD PTR [rdi]
+   1e16a:	48 f7 d0             	not    rax
+   1e16d:	48 21 06             	and    QWORD PTR [rsi],rax
 
-000000000001e190 <has_new_bits_asm.next_iteration>:
-   1e190:	48 83 c7 08          	add    rdi,0x8
-   1e194:	48 83 c6 08          	add    rsi,0x8
-   1e198:	ff c9                	dec    ecx
-   1e19a:	75 af                	jne    1e14b <has_new_bits_asm.loop>
-   1e19c:	eb 05                	jmp    1e1a3 <has_new_bits_asm.end>
+000000000001e170 <has_new_bits_asm.next_iteration>:
+   1e170:	48 83 c7 08          	add    rdi,0x8
+   1e174:	48 83 c6 08          	add    rsi,0x8
+   1e178:	ff c9                	dec    ecx
+   1e17a:	75 af                	jne    1e12b <has_new_bits_asm.loop>
+   1e17c:	eb 05                	jmp    1e183 <has_new_bits_asm.end>
 
-000000000001e19e <has_new_bits_asm.set_ret_one>:
-   1e19e:	41 b0 01             	mov    r8b,0x1
-   1e1a1:	eb e4                	jmp    1e187 <has_new_bits_asm.update_virgin_bits>
+000000000001e17e <has_new_bits_asm.set_ret_one>:
+   1e17e:	41 b0 01             	mov    r8b,0x1
+   1e181:	eb e4                	jmp    1e167 <has_new_bits_asm.update_virgin_bits>
 
-000000000001e1a3 <has_new_bits_asm.end>:
-   1e1a3:	45 84 c0             	test   r8b,r8b
-   1e1a6:	74 03                	je     1e1ab <has_new_bits_asm.finish>
-   1e1a8:	c6 02 01             	mov    BYTE PTR [rdx],0x1
+000000000001e183 <has_new_bits_asm.end>:
+   1e183:	45 84 c0             	test   r8b,r8b
+   1e186:	74 03                	je     1e18b <has_new_bits_asm.finish>
+   1e188:	c6 02 01             	mov    BYTE PTR [rdx],0x1
 
-000000000001e1ab <has_new_bits_asm.finish>:
-   1e1ab:	44 88 c0             	mov    al,r8b
-   1e1ae:	c3                   	ret    
+000000000001e18b <has_new_bits_asm.finish>:
+   1e18b:	44 88 c0             	mov    al,r8b
+   1e18e:	c3                   	ret    
 
-000000000001e1af <_ZL37__nv_save_fatbinhandle_for_managed_rtPPv>:
-   1e1af:	f3 0f 1e fa          	endbr64 
-   1e1b3:	55                   	push   rbp
-   1e1b4:	48 89 e5             	mov    rbp,rsp
-   1e1b7:	48 83 ec 08          	sub    rsp,0x8
-   1e1bb:	ff 15 1f 2e 01 00    	call   QWORD PTR [rip+0x12e1f]        # 30fe0 <mcount@GLIBC_2.2.5>
-   1e1c1:	48 89 7d f8          	mov    QWORD PTR [rbp-0x8],rdi
-   1e1c5:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1e1c9:	48 89 05 d0 d8 3b 00 	mov    QWORD PTR [rip+0x3bd8d0],rax        # 3dbaa0 <_ZL32__nv_fatbinhandle_for_managed_rt>
-   1e1d0:	90                   	nop
-   1e1d1:	c9                   	leave  
-   1e1d2:	c3                   	ret    
+000000000001e18f <_ZL37__nv_save_fatbinhandle_for_managed_rtPPv>:
+   1e18f:	f3 0f 1e fa          	endbr64 
+   1e193:	55                   	push   rbp
+   1e194:	48 89 e5             	mov    rbp,rsp
+   1e197:	48 83 ec 08          	sub    rsp,0x8
+   1e19b:	ff 15 3f 2e 01 00    	call   QWORD PTR [rip+0x12e3f]        # 30fe0 <mcount@GLIBC_2.2.5>
+   1e1a1:	48 89 7d f8          	mov    QWORD PTR [rbp-0x8],rdi
+   1e1a5:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1e1a9:	48 89 05 f0 d8 3b 00 	mov    QWORD PTR [rip+0x3bd8f0],rax        # 3dbaa0 <_ZL32__nv_fatbinhandle_for_managed_rt>
+   1e1b0:	90                   	nop
+   1e1b1:	c9                   	leave  
+   1e1b2:	c3                   	ret    
 
-000000000001e1d3 <_Z11HandleError9cudaErrorPKci>:
-   1e1d3:	f3 0f 1e fa          	endbr64 
-   1e1d7:	55                   	push   rbp
-   1e1d8:	48 89 e5             	mov    rbp,rsp
-   1e1db:	48 83 ec 10          	sub    rsp,0x10
-   1e1df:	ff 15 fb 2d 01 00    	call   QWORD PTR [rip+0x12dfb]        # 30fe0 <mcount@GLIBC_2.2.5>
-   1e1e5:	89 7d fc             	mov    DWORD PTR [rbp-0x4],edi
-   1e1e8:	48 89 75 f0          	mov    QWORD PTR [rbp-0x10],rsi
-   1e1ec:	89 55 f8             	mov    DWORD PTR [rbp-0x8],edx
-   1e1ef:	83 7d fc 00          	cmp    DWORD PTR [rbp-0x4],0x0
-   1e1f3:	74 37                	je     1e22c <_Z11HandleError9cudaErrorPKci+0x59>
-   1e1f5:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
-   1e1f8:	89 c7                	mov    edi,eax
-   1e1fa:	e8 d1 4f fe ff       	call   31d0 <cudaGetErrorString@plt>
-   1e1ff:	48 89 c6             	mov    rsi,rax
-   1e202:	8b 55 f8             	mov    edx,DWORD PTR [rbp-0x8]
-   1e205:	48 8b 45 f0          	mov    rax,QWORD PTR [rbp-0x10]
-   1e209:	89 d1                	mov    ecx,edx
-   1e20b:	48 89 c2             	mov    rdx,rax
-   1e20e:	48 8d 05 fb 9a 00 00 	lea    rax,[rip+0x9afb]        # 27d10 <interesting_8+0x188>
-   1e215:	48 89 c7             	mov    rdi,rax
-   1e218:	b8 00 00 00 00       	mov    eax,0x0
-   1e21d:	e8 5e 50 fe ff       	call   3280 <printf@plt>
-   1e222:	bf 01 00 00 00       	mov    edi,0x1
-   1e227:	e8 d4 54 fe ff       	call   3700 <exit@plt>
-   1e22c:	90                   	nop
-   1e22d:	c9                   	leave  
-   1e22e:	c3                   	ret    
+000000000001e1b3 <_Z11HandleError9cudaErrorPKci>:
+   1e1b3:	f3 0f 1e fa          	endbr64 
+   1e1b7:	55                   	push   rbp
+   1e1b8:	48 89 e5             	mov    rbp,rsp
+   1e1bb:	48 83 ec 10          	sub    rsp,0x10
+   1e1bf:	ff 15 1b 2e 01 00    	call   QWORD PTR [rip+0x12e1b]        # 30fe0 <mcount@GLIBC_2.2.5>
+   1e1c5:	89 7d fc             	mov    DWORD PTR [rbp-0x4],edi
+   1e1c8:	48 89 75 f0          	mov    QWORD PTR [rbp-0x10],rsi
+   1e1cc:	89 55 f8             	mov    DWORD PTR [rbp-0x8],edx
+   1e1cf:	83 7d fc 00          	cmp    DWORD PTR [rbp-0x4],0x0
+   1e1d3:	74 37                	je     1e20c <_Z11HandleError9cudaErrorPKci+0x59>
+   1e1d5:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+   1e1d8:	89 c7                	mov    edi,eax
+   1e1da:	e8 f1 4f fe ff       	call   31d0 <cudaGetErrorString@plt>
+   1e1df:	48 89 c6             	mov    rsi,rax
+   1e1e2:	8b 55 f8             	mov    edx,DWORD PTR [rbp-0x8]
+   1e1e5:	48 8b 45 f0          	mov    rax,QWORD PTR [rbp-0x10]
+   1e1e9:	89 d1                	mov    ecx,edx
+   1e1eb:	48 89 c2             	mov    rdx,rax
+   1e1ee:	48 8d 05 1b 9b 00 00 	lea    rax,[rip+0x9b1b]        # 27d10 <interesting_8+0x188>
+   1e1f5:	48 89 c7             	mov    rdi,rax
+   1e1f8:	b8 00 00 00 00       	mov    eax,0x0
+   1e1fd:	e8 7e 50 fe ff       	call   3280 <printf@plt>
+   1e202:	bf 01 00 00 00       	mov    edi,0x1
+   1e207:	e8 f4 54 fe ff       	call   3700 <exit@plt>
+   1e20c:	90                   	nop
+   1e20d:	c9                   	leave  
+   1e20e:	c3                   	ret    
 
-000000000001e22f <setup_device_memory>:
-   1e22f:	f3 0f 1e fa          	endbr64 
-   1e233:	55                   	push   rbp
-   1e234:	48 89 e5             	mov    rbp,rsp
-   1e237:	48 83 ec 20          	sub    rsp,0x20
-   1e23b:	ff 15 9f 2d 01 00    	call   QWORD PTR [rip+0x12d9f]        # 30fe0 <mcount@GLIBC_2.2.5>
-   1e241:	48 c7 45 e8 01 00 00 	mov    QWORD PTR [rbp-0x18],0x1
-   1e248:	00 
-   1e249:	48 c7 45 f0 01 00 00 	mov    QWORD PTR [rbp-0x10],0x1
-   1e250:	00 
-   1e251:	48 c7 45 f8 00 00 02 	mov    QWORD PTR [rbp-0x8],0x20000
-   1e258:	00 
-   1e259:	be 00 00 02 00       	mov    esi,0x20000
-   1e25e:	48 8d 05 03 d8 3b 00 	lea    rax,[rip+0x3bd803]        # 3dba68 <d_virgin_bits>
-   1e265:	48 89 c7             	mov    rdi,rax
-   1e268:	e8 a3 55 fe ff       	call   3810 <cudaMalloc@plt>
-   1e26d:	89 c1                	mov    ecx,eax
-   1e26f:	ba 1e 00 00 00       	mov    edx,0x1e
-   1e274:	48 8d 05 aa 9a 00 00 	lea    rax,[rip+0x9aaa]        # 27d25 <interesting_8+0x19d>
-   1e27b:	48 89 c6             	mov    rsi,rax
-   1e27e:	89 cf                	mov    edi,ecx
-   1e280:	e8 4e ff ff ff       	call   1e1d3 <_Z11HandleError9cudaErrorPKci>
-   1e285:	be 00 00 02 00       	mov    esi,0x20000
-   1e28a:	48 8d 05 df d7 3b 00 	lea    rax,[rip+0x3bd7df]        # 3dba70 <d_trace_bits>
-   1e291:	48 89 c7             	mov    rdi,rax
-   1e294:	e8 77 55 fe ff       	call   3810 <cudaMalloc@plt>
-   1e299:	89 c1                	mov    ecx,eax
-   1e29b:	ba 1f 00 00 00       	mov    edx,0x1f
-   1e2a0:	48 8d 05 7e 9a 00 00 	lea    rax,[rip+0x9a7e]        # 27d25 <interesting_8+0x19d>
-   1e2a7:	48 89 c6             	mov    rsi,rax
-   1e2aa:	89 cf                	mov    edi,ecx
-   1e2ac:	e8 22 ff ff ff       	call   1e1d3 <_Z11HandleError9cudaErrorPKci>
-   1e2b1:	be 01 00 00 00       	mov    esi,0x1
-   1e2b6:	48 8d 05 c3 d7 3b 00 	lea    rax,[rip+0x3bd7c3]        # 3dba80 <d_bitmap_changed>
-   1e2bd:	48 89 c7             	mov    rdi,rax
-   1e2c0:	e8 4b 55 fe ff       	call   3810 <cudaMalloc@plt>
-   1e2c5:	89 c1                	mov    ecx,eax
-   1e2c7:	ba 20 00 00 00       	mov    edx,0x20
-   1e2cc:	48 8d 05 52 9a 00 00 	lea    rax,[rip+0x9a52]        # 27d25 <interesting_8+0x19d>
-   1e2d3:	48 89 c6             	mov    rsi,rax
-   1e2d6:	89 cf                	mov    edi,ecx
-   1e2d8:	e8 f6 fe ff ff       	call   1e1d3 <_Z11HandleError9cudaErrorPKci>
-   1e2dd:	be 01 00 00 00       	mov    esi,0x1
-   1e2e2:	48 8d 05 8f d7 3b 00 	lea    rax,[rip+0x3bd78f]        # 3dba78 <d_ret>
-   1e2e9:	48 89 c7             	mov    rdi,rax
-   1e2ec:	e8 1f 55 fe ff       	call   3810 <cudaMalloc@plt>
-   1e2f1:	89 c1                	mov    ecx,eax
-   1e2f3:	ba 21 00 00 00       	mov    edx,0x21
-   1e2f8:	48 8d 05 26 9a 00 00 	lea    rax,[rip+0x9a26]        # 27d25 <interesting_8+0x19d>
-   1e2ff:	48 89 c6             	mov    rsi,rax
-   1e302:	89 cf                	mov    edi,ecx
-   1e304:	e8 ca fe ff ff       	call   1e1d3 <_Z11HandleError9cudaErrorPKci>
-   1e309:	bf 01 00 00 00       	mov    edi,0x1
-   1e30e:	e8 ed 51 fe ff       	call   3500 <malloc@plt>
-   1e313:	48 89 05 6e d7 3b 00 	mov    QWORD PTR [rip+0x3bd76e],rax        # 3dba88 <cuda_ret>
-   1e31a:	bf 01 00 00 00       	mov    edi,0x1
-   1e31f:	e8 dc 51 fe ff       	call   3500 <malloc@plt>
-   1e324:	48 89 05 65 d7 3b 00 	mov    QWORD PTR [rip+0x3bd765],rax        # 3dba90 <cuda_bitmap_changed>
-   1e32b:	90                   	nop
-   1e32c:	c9                   	leave  
-   1e32d:	c3                   	ret    
+000000000001e20f <setup_device_memory>:
+   1e20f:	f3 0f 1e fa          	endbr64 
+   1e213:	55                   	push   rbp
+   1e214:	48 89 e5             	mov    rbp,rsp
+   1e217:	48 83 ec 20          	sub    rsp,0x20
+   1e21b:	ff 15 bf 2d 01 00    	call   QWORD PTR [rip+0x12dbf]        # 30fe0 <mcount@GLIBC_2.2.5>
+   1e221:	48 c7 45 e8 01 00 00 	mov    QWORD PTR [rbp-0x18],0x1
+   1e228:	00 
+   1e229:	48 c7 45 f0 01 00 00 	mov    QWORD PTR [rbp-0x10],0x1
+   1e230:	00 
+   1e231:	48 c7 45 f8 00 00 04 	mov    QWORD PTR [rbp-0x8],0x40000
+   1e238:	00 
+   1e239:	be 00 00 04 00       	mov    esi,0x40000
+   1e23e:	48 8d 05 23 d8 3b 00 	lea    rax,[rip+0x3bd823]        # 3dba68 <d_virgin_bits>
+   1e245:	48 89 c7             	mov    rdi,rax
+   1e248:	e8 c3 55 fe ff       	call   3810 <cudaMalloc@plt>
+   1e24d:	89 c1                	mov    ecx,eax
+   1e24f:	ba 1e 00 00 00       	mov    edx,0x1e
+   1e254:	48 8d 05 ca 9a 00 00 	lea    rax,[rip+0x9aca]        # 27d25 <interesting_8+0x19d>
+   1e25b:	48 89 c6             	mov    rsi,rax
+   1e25e:	89 cf                	mov    edi,ecx
+   1e260:	e8 4e ff ff ff       	call   1e1b3 <_Z11HandleError9cudaErrorPKci>
+   1e265:	be 00 00 04 00       	mov    esi,0x40000
+   1e26a:	48 8d 05 ff d7 3b 00 	lea    rax,[rip+0x3bd7ff]        # 3dba70 <d_trace_bits>
+   1e271:	48 89 c7             	mov    rdi,rax
+   1e274:	e8 97 55 fe ff       	call   3810 <cudaMalloc@plt>
+   1e279:	89 c1                	mov    ecx,eax
+   1e27b:	ba 1f 00 00 00       	mov    edx,0x1f
+   1e280:	48 8d 05 9e 9a 00 00 	lea    rax,[rip+0x9a9e]        # 27d25 <interesting_8+0x19d>
+   1e287:	48 89 c6             	mov    rsi,rax
+   1e28a:	89 cf                	mov    edi,ecx
+   1e28c:	e8 22 ff ff ff       	call   1e1b3 <_Z11HandleError9cudaErrorPKci>
+   1e291:	be 01 00 00 00       	mov    esi,0x1
+   1e296:	48 8d 05 e3 d7 3b 00 	lea    rax,[rip+0x3bd7e3]        # 3dba80 <d_bitmap_changed>
+   1e29d:	48 89 c7             	mov    rdi,rax
+   1e2a0:	e8 6b 55 fe ff       	call   3810 <cudaMalloc@plt>
+   1e2a5:	89 c1                	mov    ecx,eax
+   1e2a7:	ba 20 00 00 00       	mov    edx,0x20
+   1e2ac:	48 8d 05 72 9a 00 00 	lea    rax,[rip+0x9a72]        # 27d25 <interesting_8+0x19d>
+   1e2b3:	48 89 c6             	mov    rsi,rax
+   1e2b6:	89 cf                	mov    edi,ecx
+   1e2b8:	e8 f6 fe ff ff       	call   1e1b3 <_Z11HandleError9cudaErrorPKci>
+   1e2bd:	be 01 00 00 00       	mov    esi,0x1
+   1e2c2:	48 8d 05 af d7 3b 00 	lea    rax,[rip+0x3bd7af]        # 3dba78 <d_ret>
+   1e2c9:	48 89 c7             	mov    rdi,rax
+   1e2cc:	e8 3f 55 fe ff       	call   3810 <cudaMalloc@plt>
+   1e2d1:	89 c1                	mov    ecx,eax
+   1e2d3:	ba 21 00 00 00       	mov    edx,0x21
+   1e2d8:	48 8d 05 46 9a 00 00 	lea    rax,[rip+0x9a46]        # 27d25 <interesting_8+0x19d>
+   1e2df:	48 89 c6             	mov    rsi,rax
+   1e2e2:	89 cf                	mov    edi,ecx
+   1e2e4:	e8 ca fe ff ff       	call   1e1b3 <_Z11HandleError9cudaErrorPKci>
+   1e2e9:	bf 01 00 00 00       	mov    edi,0x1
+   1e2ee:	e8 0d 52 fe ff       	call   3500 <malloc@plt>
+   1e2f3:	48 89 05 8e d7 3b 00 	mov    QWORD PTR [rip+0x3bd78e],rax        # 3dba88 <cuda_ret>
+   1e2fa:	bf 01 00 00 00       	mov    edi,0x1
+   1e2ff:	e8 fc 51 fe ff       	call   3500 <malloc@plt>
+   1e304:	48 89 05 85 d7 3b 00 	mov    QWORD PTR [rip+0x3bd785],rax        # 3dba90 <cuda_bitmap_changed>
+   1e30b:	90                   	nop
+   1e30c:	c9                   	leave  
+   1e30d:	c3                   	ret    
 
-000000000001e32e <cleanup_device_memory>:
-   1e32e:	f3 0f 1e fa          	endbr64 
-   1e332:	55                   	push   rbp
-   1e333:	48 89 e5             	mov    rbp,rsp
-   1e336:	ff 15 a4 2c 01 00    	call   QWORD PTR [rip+0x12ca4]        # 30fe0 <mcount@GLIBC_2.2.5>
-   1e33c:	48 8b 05 25 d7 3b 00 	mov    rax,QWORD PTR [rip+0x3bd725]        # 3dba68 <d_virgin_bits>
-   1e343:	48 89 c7             	mov    rdi,rax
-   1e346:	e8 a5 4f fe ff       	call   32f0 <cudaFree@plt>
-   1e34b:	48 8b 05 1e d7 3b 00 	mov    rax,QWORD PTR [rip+0x3bd71e]        # 3dba70 <d_trace_bits>
-   1e352:	48 89 c7             	mov    rdi,rax
-   1e355:	e8 96 4f fe ff       	call   32f0 <cudaFree@plt>
-   1e35a:	48 8b 05 17 d7 3b 00 	mov    rax,QWORD PTR [rip+0x3bd717]        # 3dba78 <d_ret>
-   1e361:	48 89 c7             	mov    rdi,rax
-   1e364:	e8 87 4f fe ff       	call   32f0 <cudaFree@plt>
-   1e369:	48 8b 05 10 d7 3b 00 	mov    rax,QWORD PTR [rip+0x3bd710]        # 3dba80 <d_bitmap_changed>
-   1e370:	48 89 c7             	mov    rdi,rax
-   1e373:	e8 78 4f fe ff       	call   32f0 <cudaFree@plt>
-   1e378:	48 8b 05 09 d7 3b 00 	mov    rax,QWORD PTR [rip+0x3bd709]        # 3dba88 <cuda_ret>
-   1e37f:	48 89 c7             	mov    rdi,rax
-   1e382:	e8 e9 4c fe ff       	call   3070 <free@plt>
-   1e387:	48 8b 05 02 d7 3b 00 	mov    rax,QWORD PTR [rip+0x3bd702]        # 3dba90 <cuda_bitmap_changed>
-   1e38e:	48 89 c7             	mov    rdi,rax
-   1e391:	e8 da 4c fe ff       	call   3070 <free@plt>
-   1e396:	90                   	nop
-   1e397:	5d                   	pop    rbp
-   1e398:	c3                   	ret    
+000000000001e30e <cleanup_device_memory>:
+   1e30e:	f3 0f 1e fa          	endbr64 
+   1e312:	55                   	push   rbp
+   1e313:	48 89 e5             	mov    rbp,rsp
+   1e316:	ff 15 c4 2c 01 00    	call   QWORD PTR [rip+0x12cc4]        # 30fe0 <mcount@GLIBC_2.2.5>
+   1e31c:	48 8b 05 45 d7 3b 00 	mov    rax,QWORD PTR [rip+0x3bd745]        # 3dba68 <d_virgin_bits>
+   1e323:	48 89 c7             	mov    rdi,rax
+   1e326:	e8 c5 4f fe ff       	call   32f0 <cudaFree@plt>
+   1e32b:	48 8b 05 3e d7 3b 00 	mov    rax,QWORD PTR [rip+0x3bd73e]        # 3dba70 <d_trace_bits>
+   1e332:	48 89 c7             	mov    rdi,rax
+   1e335:	e8 b6 4f fe ff       	call   32f0 <cudaFree@plt>
+   1e33a:	48 8b 05 37 d7 3b 00 	mov    rax,QWORD PTR [rip+0x3bd737]        # 3dba78 <d_ret>
+   1e341:	48 89 c7             	mov    rdi,rax
+   1e344:	e8 a7 4f fe ff       	call   32f0 <cudaFree@plt>
+   1e349:	48 8b 05 30 d7 3b 00 	mov    rax,QWORD PTR [rip+0x3bd730]        # 3dba80 <d_bitmap_changed>
+   1e350:	48 89 c7             	mov    rdi,rax
+   1e353:	e8 98 4f fe ff       	call   32f0 <cudaFree@plt>
+   1e358:	48 8b 05 29 d7 3b 00 	mov    rax,QWORD PTR [rip+0x3bd729]        # 3dba88 <cuda_ret>
+   1e35f:	48 89 c7             	mov    rdi,rax
+   1e362:	e8 09 4d fe ff       	call   3070 <free@plt>
+   1e367:	48 8b 05 22 d7 3b 00 	mov    rax,QWORD PTR [rip+0x3bd722]        # 3dba90 <cuda_bitmap_changed>
+   1e36e:	48 89 c7             	mov    rdi,rax
+   1e371:	e8 fa 4c fe ff       	call   3070 <free@plt>
+   1e376:	90                   	nop
+   1e377:	5d                   	pop    rbp
+   1e378:	c3                   	ret    
 
-000000000001e399 <call_has_new_bits_kernel>:
-   1e399:	f3 0f 1e fa          	endbr64 
-   1e39d:	55                   	push   rbp
-   1e39e:	48 89 e5             	mov    rbp,rsp
-   1e3a1:	48 83 ec 40          	sub    rsp,0x40
-   1e3a5:	ff 15 35 2c 01 00    	call   QWORD PTR [rip+0x12c35]        # 30fe0 <mcount@GLIBC_2.2.5>
-   1e3ab:	48 89 7d d8          	mov    QWORD PTR [rbp-0x28],rdi
-   1e3af:	48 89 75 d0          	mov    QWORD PTR [rbp-0x30],rsi
-   1e3b3:	48 89 55 c8          	mov    QWORD PTR [rbp-0x38],rdx
-   1e3b7:	64 48 8b 04 25 28 00 	mov    rax,QWORD PTR fs:0x28
-   1e3be:	00 00 
-   1e3c0:	48 89 45 f8          	mov    QWORD PTR [rbp-0x8],rax
-   1e3c4:	31 c0                	xor    eax,eax
-   1e3c6:	48 8b 05 9b d6 3b 00 	mov    rax,QWORD PTR [rip+0x3bd69b]        # 3dba68 <d_virgin_bits>
-   1e3cd:	48 8b 75 d8          	mov    rsi,QWORD PTR [rbp-0x28]
-   1e3d1:	b9 01 00 00 00       	mov    ecx,0x1
-   1e3d6:	ba 00 00 02 00       	mov    edx,0x20000
-   1e3db:	48 89 c7             	mov    rdi,rax
-   1e3de:	e8 ad 4e fe ff       	call   3290 <cudaMemcpy@plt>
-   1e3e3:	89 c1                	mov    ecx,eax
-   1e3e5:	ba 59 00 00 00       	mov    edx,0x59
-   1e3ea:	48 8d 05 34 99 00 00 	lea    rax,[rip+0x9934]        # 27d25 <interesting_8+0x19d>
-   1e3f1:	48 89 c6             	mov    rsi,rax
-   1e3f4:	89 cf                	mov    edi,ecx
-   1e3f6:	e8 d8 fd ff ff       	call   1e1d3 <_Z11HandleError9cudaErrorPKci>
-   1e3fb:	48 8b 05 6e d6 3b 00 	mov    rax,QWORD PTR [rip+0x3bd66e]        # 3dba70 <d_trace_bits>
-   1e402:	48 8b 75 d0          	mov    rsi,QWORD PTR [rbp-0x30]
-   1e406:	b9 01 00 00 00       	mov    ecx,0x1
-   1e40b:	ba 00 00 02 00       	mov    edx,0x20000
-   1e410:	48 89 c7             	mov    rdi,rax
-   1e413:	e8 78 4e fe ff       	call   3290 <cudaMemcpy@plt>
-   1e418:	89 c1                	mov    ecx,eax
-   1e41a:	ba 5a 00 00 00       	mov    edx,0x5a
-   1e41f:	48 8d 05 ff 98 00 00 	lea    rax,[rip+0x98ff]        # 27d25 <interesting_8+0x19d>
-   1e426:	48 89 c6             	mov    rsi,rax
-   1e429:	89 cf                	mov    edi,ecx
-   1e42b:	e8 a3 fd ff ff       	call   1e1d3 <_Z11HandleError9cudaErrorPKci>
-   1e430:	c7 45 e0 00 01 00 00 	mov    DWORD PTR [rbp-0x20],0x100
-   1e437:	c7 45 e4 01 00 00 00 	mov    DWORD PTR [rbp-0x1c],0x1
-   1e43e:	c7 45 e8 01 00 00 00 	mov    DWORD PTR [rbp-0x18],0x1
-   1e445:	c7 45 ec c0 03 00 00 	mov    DWORD PTR [rbp-0x14],0x3c0
-   1e44c:	c7 45 f0 01 00 00 00 	mov    DWORD PTR [rbp-0x10],0x1
-   1e453:	c7 45 f4 01 00 00 00 	mov    DWORD PTR [rbp-0xc],0x1
-   1e45a:	48 8b 45 e0          	mov    rax,QWORD PTR [rbp-0x20]
-   1e45e:	8b 4d e8             	mov    ecx,DWORD PTR [rbp-0x18]
-   1e461:	48 89 ca             	mov    rdx,rcx
-   1e464:	48 8b 7d ec          	mov    rdi,QWORD PTR [rbp-0x14]
-   1e468:	8b 75 f4             	mov    esi,DWORD PTR [rbp-0xc]
-   1e46b:	41 b9 00 00 00 00    	mov    r9d,0x0
-   1e471:	41 b8 00 00 00 00    	mov    r8d,0x0
-   1e477:	48 89 d1             	mov    rcx,rdx
-   1e47a:	48 89 c2             	mov    rdx,rax
-   1e47d:	e8 9e 4f fe ff       	call   3420 <__cudaPushCallConfiguration@plt>
-   1e482:	85 c0                	test   eax,eax
-   1e484:	75 24                	jne    1e4aa <call_has_new_bits_kernel+0x111>
-   1e486:	48 8b 0d f3 d5 3b 00 	mov    rcx,QWORD PTR [rip+0x3bd5f3]        # 3dba80 <d_bitmap_changed>
-   1e48d:	48 8b 15 e4 d5 3b 00 	mov    rdx,QWORD PTR [rip+0x3bd5e4]        # 3dba78 <d_ret>
-   1e494:	48 8b 35 d5 d5 3b 00 	mov    rsi,QWORD PTR [rip+0x3bd5d5]        # 3dba70 <d_trace_bits>
-   1e49b:	48 8b 05 c6 d5 3b 00 	mov    rax,QWORD PTR [rip+0x3bd5c6]        # 3dba68 <d_virgin_bits>
-   1e4a2:	48 89 c7             	mov    rdi,rax
-   1e4a5:	e8 d6 02 00 00       	call   1e780 <_Z19has_new_bits_kernelPhS_PjS0_>
-   1e4aa:	e8 31 4f fe ff       	call   33e0 <cudaDeviceSynchronize@plt>
-   1e4af:	89 c1                	mov    ecx,eax
-   1e4b1:	ba 60 00 00 00       	mov    edx,0x60
-   1e4b6:	48 8d 05 68 98 00 00 	lea    rax,[rip+0x9868]        # 27d25 <interesting_8+0x19d>
-   1e4bd:	48 89 c6             	mov    rsi,rax
-   1e4c0:	89 cf                	mov    edi,ecx
-   1e4c2:	e8 0c fd ff ff       	call   1e1d3 <_Z11HandleError9cudaErrorPKci>
-   1e4c7:	48 8b 35 9a d5 3b 00 	mov    rsi,QWORD PTR [rip+0x3bd59a]        # 3dba68 <d_virgin_bits>
-   1e4ce:	48 8b 45 d8          	mov    rax,QWORD PTR [rbp-0x28]
-   1e4d2:	b9 02 00 00 00       	mov    ecx,0x2
-   1e4d7:	ba 00 00 02 00       	mov    edx,0x20000
-   1e4dc:	48 89 c7             	mov    rdi,rax
-   1e4df:	e8 ac 4d fe ff       	call   3290 <cudaMemcpy@plt>
-   1e4e4:	89 c1                	mov    ecx,eax
-   1e4e6:	ba 62 00 00 00       	mov    edx,0x62
-   1e4eb:	48 8d 05 33 98 00 00 	lea    rax,[rip+0x9833]        # 27d25 <interesting_8+0x19d>
-   1e4f2:	48 89 c6             	mov    rsi,rax
-   1e4f5:	89 cf                	mov    edi,ecx
-   1e4f7:	e8 d7 fc ff ff       	call   1e1d3 <_Z11HandleError9cudaErrorPKci>
-   1e4fc:	48 8b 35 75 d5 3b 00 	mov    rsi,QWORD PTR [rip+0x3bd575]        # 3dba78 <d_ret>
-   1e503:	48 8b 05 7e d5 3b 00 	mov    rax,QWORD PTR [rip+0x3bd57e]        # 3dba88 <cuda_ret>
-   1e50a:	b9 02 00 00 00       	mov    ecx,0x2
-   1e50f:	ba 01 00 00 00       	mov    edx,0x1
-   1e514:	48 89 c7             	mov    rdi,rax
-   1e517:	e8 74 4d fe ff       	call   3290 <cudaMemcpy@plt>
-   1e51c:	89 c1                	mov    ecx,eax
-   1e51e:	ba 63 00 00 00       	mov    edx,0x63
-   1e523:	48 8d 05 fb 97 00 00 	lea    rax,[rip+0x97fb]        # 27d25 <interesting_8+0x19d>
-   1e52a:	48 89 c6             	mov    rsi,rax
-   1e52d:	89 cf                	mov    edi,ecx
-   1e52f:	e8 9f fc ff ff       	call   1e1d3 <_Z11HandleError9cudaErrorPKci>
-   1e534:	48 8b 35 45 d5 3b 00 	mov    rsi,QWORD PTR [rip+0x3bd545]        # 3dba80 <d_bitmap_changed>
-   1e53b:	48 8b 05 4e d5 3b 00 	mov    rax,QWORD PTR [rip+0x3bd54e]        # 3dba90 <cuda_bitmap_changed>
-   1e542:	b9 02 00 00 00       	mov    ecx,0x2
-   1e547:	ba 01 00 00 00       	mov    edx,0x1
-   1e54c:	48 89 c7             	mov    rdi,rax
-   1e54f:	e8 3c 4d fe ff       	call   3290 <cudaMemcpy@plt>
-   1e554:	89 c1                	mov    ecx,eax
-   1e556:	ba 64 00 00 00       	mov    edx,0x64
-   1e55b:	48 8d 05 c3 97 00 00 	lea    rax,[rip+0x97c3]        # 27d25 <interesting_8+0x19d>
-   1e562:	48 89 c6             	mov    rsi,rax
-   1e565:	89 cf                	mov    edi,ecx
-   1e567:	e8 67 fc ff ff       	call   1e1d3 <_Z11HandleError9cudaErrorPKci>
-   1e56c:	48 8b 05 1d d5 3b 00 	mov    rax,QWORD PTR [rip+0x3bd51d]        # 3dba90 <cuda_bitmap_changed>
-   1e573:	0f b6 10             	movzx  edx,BYTE PTR [rax]
-   1e576:	48 8b 45 c8          	mov    rax,QWORD PTR [rbp-0x38]
-   1e57a:	88 10                	mov    BYTE PTR [rax],dl
-   1e57c:	48 8b 05 05 d5 3b 00 	mov    rax,QWORD PTR [rip+0x3bd505]        # 3dba88 <cuda_ret>
-   1e583:	0f b6 00             	movzx  eax,BYTE PTR [rax]
-   1e586:	48 8b 55 f8          	mov    rdx,QWORD PTR [rbp-0x8]
-   1e58a:	64 48 2b 14 25 28 00 	sub    rdx,QWORD PTR fs:0x28
-   1e591:	00 00 
-   1e593:	74 05                	je     1e59a <call_has_new_bits_kernel+0x201>
-   1e595:	e8 a6 4c fe ff       	call   3240 <__stack_chk_fail@plt>
-   1e59a:	c9                   	leave  
-   1e59b:	c3                   	ret    
+000000000001e379 <call_has_new_bits_kernel>:
+   1e379:	f3 0f 1e fa          	endbr64 
+   1e37d:	55                   	push   rbp
+   1e37e:	48 89 e5             	mov    rbp,rsp
+   1e381:	48 83 ec 40          	sub    rsp,0x40
+   1e385:	ff 15 55 2c 01 00    	call   QWORD PTR [rip+0x12c55]        # 30fe0 <mcount@GLIBC_2.2.5>
+   1e38b:	48 89 7d d8          	mov    QWORD PTR [rbp-0x28],rdi
+   1e38f:	48 89 75 d0          	mov    QWORD PTR [rbp-0x30],rsi
+   1e393:	48 89 55 c8          	mov    QWORD PTR [rbp-0x38],rdx
+   1e397:	64 48 8b 04 25 28 00 	mov    rax,QWORD PTR fs:0x28
+   1e39e:	00 00 
+   1e3a0:	48 89 45 f8          	mov    QWORD PTR [rbp-0x8],rax
+   1e3a4:	31 c0                	xor    eax,eax
+   1e3a6:	48 8b 05 bb d6 3b 00 	mov    rax,QWORD PTR [rip+0x3bd6bb]        # 3dba68 <d_virgin_bits>
+   1e3ad:	48 8b 75 d8          	mov    rsi,QWORD PTR [rbp-0x28]
+   1e3b1:	b9 01 00 00 00       	mov    ecx,0x1
+   1e3b6:	ba 00 00 04 00       	mov    edx,0x40000
+   1e3bb:	48 89 c7             	mov    rdi,rax
+   1e3be:	e8 cd 4e fe ff       	call   3290 <cudaMemcpy@plt>
+   1e3c3:	89 c1                	mov    ecx,eax
+   1e3c5:	ba 59 00 00 00       	mov    edx,0x59
+   1e3ca:	48 8d 05 54 99 00 00 	lea    rax,[rip+0x9954]        # 27d25 <interesting_8+0x19d>
+   1e3d1:	48 89 c6             	mov    rsi,rax
+   1e3d4:	89 cf                	mov    edi,ecx
+   1e3d6:	e8 d8 fd ff ff       	call   1e1b3 <_Z11HandleError9cudaErrorPKci>
+   1e3db:	48 8b 05 8e d6 3b 00 	mov    rax,QWORD PTR [rip+0x3bd68e]        # 3dba70 <d_trace_bits>
+   1e3e2:	48 8b 75 d0          	mov    rsi,QWORD PTR [rbp-0x30]
+   1e3e6:	b9 01 00 00 00       	mov    ecx,0x1
+   1e3eb:	ba 00 00 04 00       	mov    edx,0x40000
+   1e3f0:	48 89 c7             	mov    rdi,rax
+   1e3f3:	e8 98 4e fe ff       	call   3290 <cudaMemcpy@plt>
+   1e3f8:	89 c1                	mov    ecx,eax
+   1e3fa:	ba 5a 00 00 00       	mov    edx,0x5a
+   1e3ff:	48 8d 05 1f 99 00 00 	lea    rax,[rip+0x991f]        # 27d25 <interesting_8+0x19d>
+   1e406:	48 89 c6             	mov    rsi,rax
+   1e409:	89 cf                	mov    edi,ecx
+   1e40b:	e8 a3 fd ff ff       	call   1e1b3 <_Z11HandleError9cudaErrorPKci>
+   1e410:	c7 45 e0 00 01 00 00 	mov    DWORD PTR [rbp-0x20],0x100
+   1e417:	c7 45 e4 01 00 00 00 	mov    DWORD PTR [rbp-0x1c],0x1
+   1e41e:	c7 45 e8 01 00 00 00 	mov    DWORD PTR [rbp-0x18],0x1
+   1e425:	c7 45 ec c0 03 00 00 	mov    DWORD PTR [rbp-0x14],0x3c0
+   1e42c:	c7 45 f0 01 00 00 00 	mov    DWORD PTR [rbp-0x10],0x1
+   1e433:	c7 45 f4 01 00 00 00 	mov    DWORD PTR [rbp-0xc],0x1
+   1e43a:	48 8b 45 e0          	mov    rax,QWORD PTR [rbp-0x20]
+   1e43e:	8b 4d e8             	mov    ecx,DWORD PTR [rbp-0x18]
+   1e441:	48 89 ca             	mov    rdx,rcx
+   1e444:	48 8b 7d ec          	mov    rdi,QWORD PTR [rbp-0x14]
+   1e448:	8b 75 f4             	mov    esi,DWORD PTR [rbp-0xc]
+   1e44b:	41 b9 00 00 00 00    	mov    r9d,0x0
+   1e451:	41 b8 00 00 00 00    	mov    r8d,0x0
+   1e457:	48 89 d1             	mov    rcx,rdx
+   1e45a:	48 89 c2             	mov    rdx,rax
+   1e45d:	e8 be 4f fe ff       	call   3420 <__cudaPushCallConfiguration@plt>
+   1e462:	85 c0                	test   eax,eax
+   1e464:	75 24                	jne    1e48a <call_has_new_bits_kernel+0x111>
+   1e466:	48 8b 0d 13 d6 3b 00 	mov    rcx,QWORD PTR [rip+0x3bd613]        # 3dba80 <d_bitmap_changed>
+   1e46d:	48 8b 15 04 d6 3b 00 	mov    rdx,QWORD PTR [rip+0x3bd604]        # 3dba78 <d_ret>
+   1e474:	48 8b 35 f5 d5 3b 00 	mov    rsi,QWORD PTR [rip+0x3bd5f5]        # 3dba70 <d_trace_bits>
+   1e47b:	48 8b 05 e6 d5 3b 00 	mov    rax,QWORD PTR [rip+0x3bd5e6]        # 3dba68 <d_virgin_bits>
+   1e482:	48 89 c7             	mov    rdi,rax
+   1e485:	e8 d6 02 00 00       	call   1e760 <_Z19has_new_bits_kernelPhS_PjS0_>
+   1e48a:	e8 51 4f fe ff       	call   33e0 <cudaDeviceSynchronize@plt>
+   1e48f:	89 c1                	mov    ecx,eax
+   1e491:	ba 60 00 00 00       	mov    edx,0x60
+   1e496:	48 8d 05 88 98 00 00 	lea    rax,[rip+0x9888]        # 27d25 <interesting_8+0x19d>
+   1e49d:	48 89 c6             	mov    rsi,rax
+   1e4a0:	89 cf                	mov    edi,ecx
+   1e4a2:	e8 0c fd ff ff       	call   1e1b3 <_Z11HandleError9cudaErrorPKci>
+   1e4a7:	48 8b 35 ba d5 3b 00 	mov    rsi,QWORD PTR [rip+0x3bd5ba]        # 3dba68 <d_virgin_bits>
+   1e4ae:	48 8b 45 d8          	mov    rax,QWORD PTR [rbp-0x28]
+   1e4b2:	b9 02 00 00 00       	mov    ecx,0x2
+   1e4b7:	ba 00 00 04 00       	mov    edx,0x40000
+   1e4bc:	48 89 c7             	mov    rdi,rax
+   1e4bf:	e8 cc 4d fe ff       	call   3290 <cudaMemcpy@plt>
+   1e4c4:	89 c1                	mov    ecx,eax
+   1e4c6:	ba 62 00 00 00       	mov    edx,0x62
+   1e4cb:	48 8d 05 53 98 00 00 	lea    rax,[rip+0x9853]        # 27d25 <interesting_8+0x19d>
+   1e4d2:	48 89 c6             	mov    rsi,rax
+   1e4d5:	89 cf                	mov    edi,ecx
+   1e4d7:	e8 d7 fc ff ff       	call   1e1b3 <_Z11HandleError9cudaErrorPKci>
+   1e4dc:	48 8b 35 95 d5 3b 00 	mov    rsi,QWORD PTR [rip+0x3bd595]        # 3dba78 <d_ret>
+   1e4e3:	48 8b 05 9e d5 3b 00 	mov    rax,QWORD PTR [rip+0x3bd59e]        # 3dba88 <cuda_ret>
+   1e4ea:	b9 02 00 00 00       	mov    ecx,0x2
+   1e4ef:	ba 01 00 00 00       	mov    edx,0x1
+   1e4f4:	48 89 c7             	mov    rdi,rax
+   1e4f7:	e8 94 4d fe ff       	call   3290 <cudaMemcpy@plt>
+   1e4fc:	89 c1                	mov    ecx,eax
+   1e4fe:	ba 63 00 00 00       	mov    edx,0x63
+   1e503:	48 8d 05 1b 98 00 00 	lea    rax,[rip+0x981b]        # 27d25 <interesting_8+0x19d>
+   1e50a:	48 89 c6             	mov    rsi,rax
+   1e50d:	89 cf                	mov    edi,ecx
+   1e50f:	e8 9f fc ff ff       	call   1e1b3 <_Z11HandleError9cudaErrorPKci>
+   1e514:	48 8b 35 65 d5 3b 00 	mov    rsi,QWORD PTR [rip+0x3bd565]        # 3dba80 <d_bitmap_changed>
+   1e51b:	48 8b 05 6e d5 3b 00 	mov    rax,QWORD PTR [rip+0x3bd56e]        # 3dba90 <cuda_bitmap_changed>
+   1e522:	b9 02 00 00 00       	mov    ecx,0x2
+   1e527:	ba 01 00 00 00       	mov    edx,0x1
+   1e52c:	48 89 c7             	mov    rdi,rax
+   1e52f:	e8 5c 4d fe ff       	call   3290 <cudaMemcpy@plt>
+   1e534:	89 c1                	mov    ecx,eax
+   1e536:	ba 64 00 00 00       	mov    edx,0x64
+   1e53b:	48 8d 05 e3 97 00 00 	lea    rax,[rip+0x97e3]        # 27d25 <interesting_8+0x19d>
+   1e542:	48 89 c6             	mov    rsi,rax
+   1e545:	89 cf                	mov    edi,ecx
+   1e547:	e8 67 fc ff ff       	call   1e1b3 <_Z11HandleError9cudaErrorPKci>
+   1e54c:	48 8b 05 3d d5 3b 00 	mov    rax,QWORD PTR [rip+0x3bd53d]        # 3dba90 <cuda_bitmap_changed>
+   1e553:	0f b6 10             	movzx  edx,BYTE PTR [rax]
+   1e556:	48 8b 45 c8          	mov    rax,QWORD PTR [rbp-0x38]
+   1e55a:	88 10                	mov    BYTE PTR [rax],dl
+   1e55c:	48 8b 05 25 d5 3b 00 	mov    rax,QWORD PTR [rip+0x3bd525]        # 3dba88 <cuda_ret>
+   1e563:	0f b6 00             	movzx  eax,BYTE PTR [rax]
+   1e566:	48 8b 55 f8          	mov    rdx,QWORD PTR [rbp-0x8]
+   1e56a:	64 48 2b 14 25 28 00 	sub    rdx,QWORD PTR fs:0x28
+   1e571:	00 00 
+   1e573:	74 05                	je     1e57a <call_has_new_bits_kernel+0x201>
+   1e575:	e8 c6 4c fe ff       	call   3240 <__stack_chk_fail@plt>
+   1e57a:	c9                   	leave  
+   1e57b:	c3                   	ret    
 
-000000000001e59c <_ZL22____nv_dummy_param_refPv>:
-   1e59c:	f3 0f 1e fa          	endbr64 
-   1e5a0:	55                   	push   rbp
-   1e5a1:	48 89 e5             	mov    rbp,rsp
-   1e5a4:	48 83 ec 08          	sub    rsp,0x8
-   1e5a8:	ff 15 32 2a 01 00    	call   QWORD PTR [rip+0x12a32]        # 30fe0 <mcount@GLIBC_2.2.5>
-   1e5ae:	48 89 7d f8          	mov    QWORD PTR [rbp-0x8],rdi
-   1e5b2:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1e5b6:	48 89 05 eb d4 3b 00 	mov    QWORD PTR [rip+0x3bd4eb],rax        # 3dbaa8 <_ZZL22____nv_dummy_param_refPvE5__ref>
-   1e5bd:	c9                   	leave  
-   1e5be:	c3                   	ret    
+000000000001e57c <_ZL22____nv_dummy_param_refPv>:
+   1e57c:	f3 0f 1e fa          	endbr64 
+   1e580:	55                   	push   rbp
+   1e581:	48 89 e5             	mov    rbp,rsp
+   1e584:	48 83 ec 08          	sub    rsp,0x8
+   1e588:	ff 15 52 2a 01 00    	call   QWORD PTR [rip+0x12a52]        # 30fe0 <mcount@GLIBC_2.2.5>
+   1e58e:	48 89 7d f8          	mov    QWORD PTR [rbp-0x8],rdi
+   1e592:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1e596:	48 89 05 0b d5 3b 00 	mov    QWORD PTR [rip+0x3bd50b],rax        # 3dbaa8 <_ZZL22____nv_dummy_param_refPvE5__ref>
+   1e59d:	c9                   	leave  
+   1e59e:	c3                   	ret    
 
-000000000001e5bf <_ZL26__cudaUnregisterBinaryUtilv>:
-   1e5bf:	f3 0f 1e fa          	endbr64 
-   1e5c3:	55                   	push   rbp
-   1e5c4:	48 89 e5             	mov    rbp,rsp
-   1e5c7:	ff 15 13 2a 01 00    	call   QWORD PTR [rip+0x12a13]        # 30fe0 <mcount@GLIBC_2.2.5>
-   1e5cd:	48 8d 05 dc d4 3b 00 	lea    rax,[rip+0x3bd4dc]        # 3dbab0 <_ZL20__cudaFatCubinHandle>
-   1e5d4:	48 89 c7             	mov    rdi,rax
-   1e5d7:	e8 c0 ff ff ff       	call   1e59c <_ZL22____nv_dummy_param_refPv>
-   1e5dc:	48 8b 05 cd d4 3b 00 	mov    rax,QWORD PTR [rip+0x3bd4cd]        # 3dbab0 <_ZL20__cudaFatCubinHandle>
-   1e5e3:	48 89 c7             	mov    rdi,rax
-   1e5e6:	e8 e5 51 fe ff       	call   37d0 <__cudaUnregisterFatBinary@plt>
-   1e5eb:	90                   	nop
-   1e5ec:	5d                   	pop    rbp
-   1e5ed:	c3                   	ret    
+000000000001e59f <_ZL26__cudaUnregisterBinaryUtilv>:
+   1e59f:	f3 0f 1e fa          	endbr64 
+   1e5a3:	55                   	push   rbp
+   1e5a4:	48 89 e5             	mov    rbp,rsp
+   1e5a7:	ff 15 33 2a 01 00    	call   QWORD PTR [rip+0x12a33]        # 30fe0 <mcount@GLIBC_2.2.5>
+   1e5ad:	48 8d 05 fc d4 3b 00 	lea    rax,[rip+0x3bd4fc]        # 3dbab0 <_ZL20__cudaFatCubinHandle>
+   1e5b4:	48 89 c7             	mov    rdi,rax
+   1e5b7:	e8 c0 ff ff ff       	call   1e57c <_ZL22____nv_dummy_param_refPv>
+   1e5bc:	48 8b 05 ed d4 3b 00 	mov    rax,QWORD PTR [rip+0x3bd4ed]        # 3dbab0 <_ZL20__cudaFatCubinHandle>
+   1e5c3:	48 89 c7             	mov    rdi,rax
+   1e5c6:	e8 05 52 fe ff       	call   37d0 <__cudaUnregisterFatBinary@plt>
+   1e5cb:	90                   	nop
+   1e5cc:	5d                   	pop    rbp
+   1e5cd:	c3                   	ret    
 
-000000000001e5ee <_ZL32__nv_init_managed_rt_with_modulePPv>:
-   1e5ee:	f3 0f 1e fa          	endbr64 
-   1e5f2:	55                   	push   rbp
-   1e5f3:	48 89 e5             	mov    rbp,rsp
-   1e5f6:	48 83 ec 10          	sub    rsp,0x10
-   1e5fa:	ff 15 e0 29 01 00    	call   QWORD PTR [rip+0x129e0]        # 30fe0 <mcount@GLIBC_2.2.5>
-   1e600:	48 89 7d f8          	mov    QWORD PTR [rbp-0x8],rdi
-   1e604:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1e608:	48 89 c7             	mov    rdi,rax
-   1e60b:	e8 00 4b fe ff       	call   3110 <__cudaInitModule@plt>
-   1e610:	c9                   	leave  
-   1e611:	c3                   	ret    
+000000000001e5ce <_ZL32__nv_init_managed_rt_with_modulePPv>:
+   1e5ce:	f3 0f 1e fa          	endbr64 
+   1e5d2:	55                   	push   rbp
+   1e5d3:	48 89 e5             	mov    rbp,rsp
+   1e5d6:	48 83 ec 10          	sub    rsp,0x10
+   1e5da:	ff 15 00 2a 01 00    	call   QWORD PTR [rip+0x12a00]        # 30fe0 <mcount@GLIBC_2.2.5>
+   1e5e0:	48 89 7d f8          	mov    QWORD PTR [rbp-0x8],rdi
+   1e5e4:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1e5e8:	48 89 c7             	mov    rdi,rax
+   1e5eb:	e8 20 4b fe ff       	call   3110 <__cudaInitModule@plt>
+   1e5f0:	c9                   	leave  
+   1e5f1:	c3                   	ret    
 
-000000000001e612 <_Z46__device_stub__Z19has_new_bits_kernelPhS_PjS0_PhS_PjS0_>:
-   1e612:	f3 0f 1e fa          	endbr64 
-   1e616:	55                   	push   rbp
-   1e617:	48 89 e5             	mov    rbp,rsp
-   1e61a:	48 83 c4 80          	add    rsp,0xffffffffffffff80
-   1e61e:	ff 15 bc 29 01 00    	call   QWORD PTR [rip+0x129bc]        # 30fe0 <mcount@GLIBC_2.2.5>
-   1e624:	48 89 7d 98          	mov    QWORD PTR [rbp-0x68],rdi
-   1e628:	48 89 75 90          	mov    QWORD PTR [rbp-0x70],rsi
-   1e62c:	48 89 55 88          	mov    QWORD PTR [rbp-0x78],rdx
-   1e630:	48 89 4d 80          	mov    QWORD PTR [rbp-0x80],rcx
-   1e634:	64 48 8b 04 25 28 00 	mov    rax,QWORD PTR fs:0x28
-   1e63b:	00 00 
-   1e63d:	48 89 45 f8          	mov    QWORD PTR [rbp-0x8],rax
-   1e641:	31 c0                	xor    eax,eax
-   1e643:	c7 45 a4 00 00 00 00 	mov    DWORD PTR [rbp-0x5c],0x0
-   1e64a:	8b 45 a4             	mov    eax,DWORD PTR [rbp-0x5c]
-   1e64d:	48 98                	cdqe   
-   1e64f:	48 8d 55 98          	lea    rdx,[rbp-0x68]
-   1e653:	48 89 54 c5 d0       	mov    QWORD PTR [rbp+rax*8-0x30],rdx
-   1e658:	83 45 a4 01          	add    DWORD PTR [rbp-0x5c],0x1
-   1e65c:	8b 45 a4             	mov    eax,DWORD PTR [rbp-0x5c]
-   1e65f:	48 98                	cdqe   
-   1e661:	48 8d 55 90          	lea    rdx,[rbp-0x70]
-   1e665:	48 89 54 c5 d0       	mov    QWORD PTR [rbp+rax*8-0x30],rdx
-   1e66a:	83 45 a4 01          	add    DWORD PTR [rbp-0x5c],0x1
-   1e66e:	8b 45 a4             	mov    eax,DWORD PTR [rbp-0x5c]
-   1e671:	48 98                	cdqe   
-   1e673:	48 8d 55 88          	lea    rdx,[rbp-0x78]
-   1e677:	48 89 54 c5 d0       	mov    QWORD PTR [rbp+rax*8-0x30],rdx
-   1e67c:	83 45 a4 01          	add    DWORD PTR [rbp-0x5c],0x1
-   1e680:	8b 45 a4             	mov    eax,DWORD PTR [rbp-0x5c]
-   1e683:	48 98                	cdqe   
-   1e685:	48 8d 55 80          	lea    rdx,[rbp-0x80]
-   1e689:	48 89 54 c5 d0       	mov    QWORD PTR [rbp+rax*8-0x30],rdx
-   1e68e:	83 45 a4 01          	add    DWORD PTR [rbp-0x5c],0x1
-   1e692:	48 8d 05 e7 00 00 00 	lea    rax,[rip+0xe7]        # 1e780 <_Z19has_new_bits_kernelPhS_PjS0_>
-   1e699:	48 89 05 18 d4 3b 00 	mov    QWORD PTR [rip+0x3bd418],rax        # 3dbab8 <_ZZ46__device_stub__Z19has_new_bits_kernelPhS_PjS0_PhS_PjS0_E3__f>
-   1e6a0:	c7 45 b8 01 00 00 00 	mov    DWORD PTR [rbp-0x48],0x1
-   1e6a7:	c7 45 bc 01 00 00 00 	mov    DWORD PTR [rbp-0x44],0x1
-   1e6ae:	c7 45 c0 01 00 00 00 	mov    DWORD PTR [rbp-0x40],0x1
-   1e6b5:	c7 45 c4 01 00 00 00 	mov    DWORD PTR [rbp-0x3c],0x1
-   1e6bc:	c7 45 c8 01 00 00 00 	mov    DWORD PTR [rbp-0x38],0x1
-   1e6c3:	c7 45 cc 01 00 00 00 	mov    DWORD PTR [rbp-0x34],0x1
-   1e6ca:	48 8d 4d b0          	lea    rcx,[rbp-0x50]
-   1e6ce:	48 8d 55 a8          	lea    rdx,[rbp-0x58]
-   1e6d2:	48 8d 75 c4          	lea    rsi,[rbp-0x3c]
-   1e6d6:	48 8d 45 b8          	lea    rax,[rbp-0x48]
-   1e6da:	48 89 c7             	mov    rdi,rax
-   1e6dd:	e8 5e 4a fe ff       	call   3140 <__cudaPopCallConfiguration@plt>
-   1e6e2:	85 c0                	test   eax,eax
-   1e6e4:	0f 95 c0             	setne  al
-   1e6e7:	84 c0                	test   al,al
-   1e6e9:	75 7f                	jne    1e76a <_Z46__device_stub__Z19has_new_bits_kernelPhS_PjS0_PhS_PjS0_+0x158>
-   1e6eb:	83 7d a4 00          	cmp    DWORD PTR [rbp-0x5c],0x0
-   1e6ef:	75 44                	jne    1e735 <_Z46__device_stub__Z19has_new_bits_kernelPhS_PjS0_PhS_PjS0_+0x123>
-   1e6f1:	48 8b 7d b0          	mov    rdi,QWORD PTR [rbp-0x50]
-   1e6f5:	48 8b 75 a8          	mov    rsi,QWORD PTR [rbp-0x58]
-   1e6f9:	48 8d 55 d0          	lea    rdx,[rbp-0x30]
-   1e6fd:	8b 45 a4             	mov    eax,DWORD PTR [rbp-0x5c]
-   1e700:	48 98                	cdqe   
-   1e702:	48 c1 e0 03          	shl    rax,0x3
-   1e706:	4c 8d 0c 02          	lea    r9,[rdx+rax*1]
-   1e70a:	48 8b 4d c4          	mov    rcx,QWORD PTR [rbp-0x3c]
-   1e70e:	44 8b 45 cc          	mov    r8d,DWORD PTR [rbp-0x34]
-   1e712:	48 8b 55 b8          	mov    rdx,QWORD PTR [rbp-0x48]
-   1e716:	8b 45 c0             	mov    eax,DWORD PTR [rbp-0x40]
-   1e719:	57                   	push   rdi
-   1e71a:	56                   	push   rsi
-   1e71b:	48 89 d6             	mov    rsi,rdx
-   1e71e:	89 c2                	mov    edx,eax
-   1e720:	48 8d 05 59 00 00 00 	lea    rax,[rip+0x59]        # 1e780 <_Z19has_new_bits_kernelPhS_PjS0_>
-   1e727:	48 89 c7             	mov    rdi,rax
-   1e72a:	e8 5e 01 00 00       	call   1e88d <_Z16cudaLaunchKernelIcE9cudaErrorPKT_4dim3S4_PPvmP11CUstream_st>
-   1e72f:	48 83 c4 10          	add    rsp,0x10
-   1e733:	eb 35                	jmp    1e76a <_Z46__device_stub__Z19has_new_bits_kernelPhS_PjS0_PhS_PjS0_+0x158>
-   1e735:	48 8b 7d b0          	mov    rdi,QWORD PTR [rbp-0x50]
-   1e739:	48 8b 75 a8          	mov    rsi,QWORD PTR [rbp-0x58]
-   1e73d:	4c 8d 4d d0          	lea    r9,[rbp-0x30]
-   1e741:	48 8b 4d c4          	mov    rcx,QWORD PTR [rbp-0x3c]
-   1e745:	44 8b 45 cc          	mov    r8d,DWORD PTR [rbp-0x34]
-   1e749:	48 8b 55 b8          	mov    rdx,QWORD PTR [rbp-0x48]
-   1e74d:	8b 45 c0             	mov    eax,DWORD PTR [rbp-0x40]
-   1e750:	57                   	push   rdi
-   1e751:	56                   	push   rsi
-   1e752:	48 89 d6             	mov    rsi,rdx
-   1e755:	89 c2                	mov    edx,eax
-   1e757:	48 8d 05 22 00 00 00 	lea    rax,[rip+0x22]        # 1e780 <_Z19has_new_bits_kernelPhS_PjS0_>
-   1e75e:	48 89 c7             	mov    rdi,rax
-   1e761:	e8 27 01 00 00       	call   1e88d <_Z16cudaLaunchKernelIcE9cudaErrorPKT_4dim3S4_PPvmP11CUstream_st>
-   1e766:	48 83 c4 10          	add    rsp,0x10
-   1e76a:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1e76e:	64 48 2b 04 25 28 00 	sub    rax,QWORD PTR fs:0x28
-   1e775:	00 00 
-   1e777:	74 05                	je     1e77e <_Z46__device_stub__Z19has_new_bits_kernelPhS_PjS0_PhS_PjS0_+0x16c>
-   1e779:	e8 c2 4a fe ff       	call   3240 <__stack_chk_fail@plt>
-   1e77e:	c9                   	leave  
-   1e77f:	c3                   	ret    
+000000000001e5f2 <_Z46__device_stub__Z19has_new_bits_kernelPhS_PjS0_PhS_PjS0_>:
+   1e5f2:	f3 0f 1e fa          	endbr64 
+   1e5f6:	55                   	push   rbp
+   1e5f7:	48 89 e5             	mov    rbp,rsp
+   1e5fa:	48 83 c4 80          	add    rsp,0xffffffffffffff80
+   1e5fe:	ff 15 dc 29 01 00    	call   QWORD PTR [rip+0x129dc]        # 30fe0 <mcount@GLIBC_2.2.5>
+   1e604:	48 89 7d 98          	mov    QWORD PTR [rbp-0x68],rdi
+   1e608:	48 89 75 90          	mov    QWORD PTR [rbp-0x70],rsi
+   1e60c:	48 89 55 88          	mov    QWORD PTR [rbp-0x78],rdx
+   1e610:	48 89 4d 80          	mov    QWORD PTR [rbp-0x80],rcx
+   1e614:	64 48 8b 04 25 28 00 	mov    rax,QWORD PTR fs:0x28
+   1e61b:	00 00 
+   1e61d:	48 89 45 f8          	mov    QWORD PTR [rbp-0x8],rax
+   1e621:	31 c0                	xor    eax,eax
+   1e623:	c7 45 a4 00 00 00 00 	mov    DWORD PTR [rbp-0x5c],0x0
+   1e62a:	8b 45 a4             	mov    eax,DWORD PTR [rbp-0x5c]
+   1e62d:	48 98                	cdqe   
+   1e62f:	48 8d 55 98          	lea    rdx,[rbp-0x68]
+   1e633:	48 89 54 c5 d0       	mov    QWORD PTR [rbp+rax*8-0x30],rdx
+   1e638:	83 45 a4 01          	add    DWORD PTR [rbp-0x5c],0x1
+   1e63c:	8b 45 a4             	mov    eax,DWORD PTR [rbp-0x5c]
+   1e63f:	48 98                	cdqe   
+   1e641:	48 8d 55 90          	lea    rdx,[rbp-0x70]
+   1e645:	48 89 54 c5 d0       	mov    QWORD PTR [rbp+rax*8-0x30],rdx
+   1e64a:	83 45 a4 01          	add    DWORD PTR [rbp-0x5c],0x1
+   1e64e:	8b 45 a4             	mov    eax,DWORD PTR [rbp-0x5c]
+   1e651:	48 98                	cdqe   
+   1e653:	48 8d 55 88          	lea    rdx,[rbp-0x78]
+   1e657:	48 89 54 c5 d0       	mov    QWORD PTR [rbp+rax*8-0x30],rdx
+   1e65c:	83 45 a4 01          	add    DWORD PTR [rbp-0x5c],0x1
+   1e660:	8b 45 a4             	mov    eax,DWORD PTR [rbp-0x5c]
+   1e663:	48 98                	cdqe   
+   1e665:	48 8d 55 80          	lea    rdx,[rbp-0x80]
+   1e669:	48 89 54 c5 d0       	mov    QWORD PTR [rbp+rax*8-0x30],rdx
+   1e66e:	83 45 a4 01          	add    DWORD PTR [rbp-0x5c],0x1
+   1e672:	48 8d 05 e7 00 00 00 	lea    rax,[rip+0xe7]        # 1e760 <_Z19has_new_bits_kernelPhS_PjS0_>
+   1e679:	48 89 05 38 d4 3b 00 	mov    QWORD PTR [rip+0x3bd438],rax        # 3dbab8 <_ZZ46__device_stub__Z19has_new_bits_kernelPhS_PjS0_PhS_PjS0_E3__f>
+   1e680:	c7 45 b8 01 00 00 00 	mov    DWORD PTR [rbp-0x48],0x1
+   1e687:	c7 45 bc 01 00 00 00 	mov    DWORD PTR [rbp-0x44],0x1
+   1e68e:	c7 45 c0 01 00 00 00 	mov    DWORD PTR [rbp-0x40],0x1
+   1e695:	c7 45 c4 01 00 00 00 	mov    DWORD PTR [rbp-0x3c],0x1
+   1e69c:	c7 45 c8 01 00 00 00 	mov    DWORD PTR [rbp-0x38],0x1
+   1e6a3:	c7 45 cc 01 00 00 00 	mov    DWORD PTR [rbp-0x34],0x1
+   1e6aa:	48 8d 4d b0          	lea    rcx,[rbp-0x50]
+   1e6ae:	48 8d 55 a8          	lea    rdx,[rbp-0x58]
+   1e6b2:	48 8d 75 c4          	lea    rsi,[rbp-0x3c]
+   1e6b6:	48 8d 45 b8          	lea    rax,[rbp-0x48]
+   1e6ba:	48 89 c7             	mov    rdi,rax
+   1e6bd:	e8 7e 4a fe ff       	call   3140 <__cudaPopCallConfiguration@plt>
+   1e6c2:	85 c0                	test   eax,eax
+   1e6c4:	0f 95 c0             	setne  al
+   1e6c7:	84 c0                	test   al,al
+   1e6c9:	75 7f                	jne    1e74a <_Z46__device_stub__Z19has_new_bits_kernelPhS_PjS0_PhS_PjS0_+0x158>
+   1e6cb:	83 7d a4 00          	cmp    DWORD PTR [rbp-0x5c],0x0
+   1e6cf:	75 44                	jne    1e715 <_Z46__device_stub__Z19has_new_bits_kernelPhS_PjS0_PhS_PjS0_+0x123>
+   1e6d1:	48 8b 7d b0          	mov    rdi,QWORD PTR [rbp-0x50]
+   1e6d5:	48 8b 75 a8          	mov    rsi,QWORD PTR [rbp-0x58]
+   1e6d9:	48 8d 55 d0          	lea    rdx,[rbp-0x30]
+   1e6dd:	8b 45 a4             	mov    eax,DWORD PTR [rbp-0x5c]
+   1e6e0:	48 98                	cdqe   
+   1e6e2:	48 c1 e0 03          	shl    rax,0x3
+   1e6e6:	4c 8d 0c 02          	lea    r9,[rdx+rax*1]
+   1e6ea:	48 8b 4d c4          	mov    rcx,QWORD PTR [rbp-0x3c]
+   1e6ee:	44 8b 45 cc          	mov    r8d,DWORD PTR [rbp-0x34]
+   1e6f2:	48 8b 55 b8          	mov    rdx,QWORD PTR [rbp-0x48]
+   1e6f6:	8b 45 c0             	mov    eax,DWORD PTR [rbp-0x40]
+   1e6f9:	57                   	push   rdi
+   1e6fa:	56                   	push   rsi
+   1e6fb:	48 89 d6             	mov    rsi,rdx
+   1e6fe:	89 c2                	mov    edx,eax
+   1e700:	48 8d 05 59 00 00 00 	lea    rax,[rip+0x59]        # 1e760 <_Z19has_new_bits_kernelPhS_PjS0_>
+   1e707:	48 89 c7             	mov    rdi,rax
+   1e70a:	e8 5e 01 00 00       	call   1e86d <_Z16cudaLaunchKernelIcE9cudaErrorPKT_4dim3S4_PPvmP11CUstream_st>
+   1e70f:	48 83 c4 10          	add    rsp,0x10
+   1e713:	eb 35                	jmp    1e74a <_Z46__device_stub__Z19has_new_bits_kernelPhS_PjS0_PhS_PjS0_+0x158>
+   1e715:	48 8b 7d b0          	mov    rdi,QWORD PTR [rbp-0x50]
+   1e719:	48 8b 75 a8          	mov    rsi,QWORD PTR [rbp-0x58]
+   1e71d:	4c 8d 4d d0          	lea    r9,[rbp-0x30]
+   1e721:	48 8b 4d c4          	mov    rcx,QWORD PTR [rbp-0x3c]
+   1e725:	44 8b 45 cc          	mov    r8d,DWORD PTR [rbp-0x34]
+   1e729:	48 8b 55 b8          	mov    rdx,QWORD PTR [rbp-0x48]
+   1e72d:	8b 45 c0             	mov    eax,DWORD PTR [rbp-0x40]
+   1e730:	57                   	push   rdi
+   1e731:	56                   	push   rsi
+   1e732:	48 89 d6             	mov    rsi,rdx
+   1e735:	89 c2                	mov    edx,eax
+   1e737:	48 8d 05 22 00 00 00 	lea    rax,[rip+0x22]        # 1e760 <_Z19has_new_bits_kernelPhS_PjS0_>
+   1e73e:	48 89 c7             	mov    rdi,rax
+   1e741:	e8 27 01 00 00       	call   1e86d <_Z16cudaLaunchKernelIcE9cudaErrorPKT_4dim3S4_PPvmP11CUstream_st>
+   1e746:	48 83 c4 10          	add    rsp,0x10
+   1e74a:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1e74e:	64 48 2b 04 25 28 00 	sub    rax,QWORD PTR fs:0x28
+   1e755:	00 00 
+   1e757:	74 05                	je     1e75e <_Z46__device_stub__Z19has_new_bits_kernelPhS_PjS0_PhS_PjS0_+0x16c>
+   1e759:	e8 e2 4a fe ff       	call   3240 <__stack_chk_fail@plt>
+   1e75e:	c9                   	leave  
+   1e75f:	c3                   	ret    
 
-000000000001e780 <_Z19has_new_bits_kernelPhS_PjS0_>:
-   1e780:	f3 0f 1e fa          	endbr64 
-   1e784:	55                   	push   rbp
-   1e785:	48 89 e5             	mov    rbp,rsp
-   1e788:	48 83 ec 20          	sub    rsp,0x20
-   1e78c:	ff 15 4e 28 01 00    	call   QWORD PTR [rip+0x1284e]        # 30fe0 <mcount@GLIBC_2.2.5>
-   1e792:	48 89 7d f8          	mov    QWORD PTR [rbp-0x8],rdi
-   1e796:	48 89 75 f0          	mov    QWORD PTR [rbp-0x10],rsi
-   1e79a:	48 89 55 e8          	mov    QWORD PTR [rbp-0x18],rdx
-   1e79e:	48 89 4d e0          	mov    QWORD PTR [rbp-0x20],rcx
-   1e7a2:	48 8b 4d e0          	mov    rcx,QWORD PTR [rbp-0x20]
-   1e7a6:	48 8b 55 e8          	mov    rdx,QWORD PTR [rbp-0x18]
-   1e7aa:	48 8b 75 f0          	mov    rsi,QWORD PTR [rbp-0x10]
-   1e7ae:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1e7b2:	48 89 c7             	mov    rdi,rax
-   1e7b5:	e8 58 fe ff ff       	call   1e612 <_Z46__device_stub__Z19has_new_bits_kernelPhS_PjS0_PhS_PjS0_>
-   1e7ba:	90                   	nop
-   1e7bb:	c9                   	leave  
-   1e7bc:	c3                   	ret    
+000000000001e760 <_Z19has_new_bits_kernelPhS_PjS0_>:
+   1e760:	f3 0f 1e fa          	endbr64 
+   1e764:	55                   	push   rbp
+   1e765:	48 89 e5             	mov    rbp,rsp
+   1e768:	48 83 ec 20          	sub    rsp,0x20
+   1e76c:	ff 15 6e 28 01 00    	call   QWORD PTR [rip+0x1286e]        # 30fe0 <mcount@GLIBC_2.2.5>
+   1e772:	48 89 7d f8          	mov    QWORD PTR [rbp-0x8],rdi
+   1e776:	48 89 75 f0          	mov    QWORD PTR [rbp-0x10],rsi
+   1e77a:	48 89 55 e8          	mov    QWORD PTR [rbp-0x18],rdx
+   1e77e:	48 89 4d e0          	mov    QWORD PTR [rbp-0x20],rcx
+   1e782:	48 8b 4d e0          	mov    rcx,QWORD PTR [rbp-0x20]
+   1e786:	48 8b 55 e8          	mov    rdx,QWORD PTR [rbp-0x18]
+   1e78a:	48 8b 75 f0          	mov    rsi,QWORD PTR [rbp-0x10]
+   1e78e:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1e792:	48 89 c7             	mov    rdi,rax
+   1e795:	e8 58 fe ff ff       	call   1e5f2 <_Z46__device_stub__Z19has_new_bits_kernelPhS_PjS0_PhS_PjS0_>
+   1e79a:	90                   	nop
+   1e79b:	c9                   	leave  
+   1e79c:	c3                   	ret    
 
-000000000001e7bd <_ZL31__nv_cudaEntityRegisterCallbackPPv>:
-   1e7bd:	f3 0f 1e fa          	endbr64 
-   1e7c1:	55                   	push   rbp
-   1e7c2:	48 89 e5             	mov    rbp,rsp
-   1e7c5:	48 83 ec 10          	sub    rsp,0x10
-   1e7c9:	ff 15 11 28 01 00    	call   QWORD PTR [rip+0x12811]        # 30fe0 <mcount@GLIBC_2.2.5>
-   1e7cf:	48 89 7d f8          	mov    QWORD PTR [rbp-0x8],rdi
-   1e7d3:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1e7d7:	48 89 05 e2 d2 3b 00 	mov    QWORD PTR [rip+0x3bd2e2],rax        # 3dbac0 <_ZZL31__nv_cudaEntityRegisterCallbackPPvE5__ref>
-   1e7de:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1e7e2:	48 89 c7             	mov    rdi,rax
-   1e7e5:	e8 c5 f9 ff ff       	call   1e1af <_ZL37__nv_save_fatbinhandle_for_managed_rtPPv>
-   1e7ea:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1e7ee:	6a 00                	push   0x0
-   1e7f0:	6a 00                	push   0x0
-   1e7f2:	6a 00                	push   0x0
-   1e7f4:	6a 00                	push   0x0
-   1e7f6:	41 b9 00 00 00 00    	mov    r9d,0x0
-   1e7fc:	41 b8 ff ff ff ff    	mov    r8d,0xffffffff
-   1e802:	48 8d 15 27 95 00 00 	lea    rdx,[rip+0x9527]        # 27d30 <interesting_8+0x1a8>
-   1e809:	48 89 d1             	mov    rcx,rdx
-   1e80c:	48 8d 15 1d 95 00 00 	lea    rdx,[rip+0x951d]        # 27d30 <interesting_8+0x1a8>
-   1e813:	48 8d 35 66 ff ff ff 	lea    rsi,[rip+0xffffffffffffff66]        # 1e780 <_Z19has_new_bits_kernelPhS_PjS0_>
-   1e81a:	48 89 c7             	mov    rdi,rax
-   1e81d:	e8 2e 4f fe ff       	call   3750 <__cudaRegisterFunction@plt>
-   1e822:	48 83 c4 20          	add    rsp,0x20
-   1e826:	90                   	nop
-   1e827:	c9                   	leave  
-   1e828:	c3                   	ret    
+000000000001e79d <_ZL31__nv_cudaEntityRegisterCallbackPPv>:
+   1e79d:	f3 0f 1e fa          	endbr64 
+   1e7a1:	55                   	push   rbp
+   1e7a2:	48 89 e5             	mov    rbp,rsp
+   1e7a5:	48 83 ec 10          	sub    rsp,0x10
+   1e7a9:	ff 15 31 28 01 00    	call   QWORD PTR [rip+0x12831]        # 30fe0 <mcount@GLIBC_2.2.5>
+   1e7af:	48 89 7d f8          	mov    QWORD PTR [rbp-0x8],rdi
+   1e7b3:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1e7b7:	48 89 05 02 d3 3b 00 	mov    QWORD PTR [rip+0x3bd302],rax        # 3dbac0 <_ZZL31__nv_cudaEntityRegisterCallbackPPvE5__ref>
+   1e7be:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1e7c2:	48 89 c7             	mov    rdi,rax
+   1e7c5:	e8 c5 f9 ff ff       	call   1e18f <_ZL37__nv_save_fatbinhandle_for_managed_rtPPv>
+   1e7ca:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1e7ce:	6a 00                	push   0x0
+   1e7d0:	6a 00                	push   0x0
+   1e7d2:	6a 00                	push   0x0
+   1e7d4:	6a 00                	push   0x0
+   1e7d6:	41 b9 00 00 00 00    	mov    r9d,0x0
+   1e7dc:	41 b8 ff ff ff ff    	mov    r8d,0xffffffff
+   1e7e2:	48 8d 15 47 95 00 00 	lea    rdx,[rip+0x9547]        # 27d30 <interesting_8+0x1a8>
+   1e7e9:	48 89 d1             	mov    rcx,rdx
+   1e7ec:	48 8d 15 3d 95 00 00 	lea    rdx,[rip+0x953d]        # 27d30 <interesting_8+0x1a8>
+   1e7f3:	48 8d 35 66 ff ff ff 	lea    rsi,[rip+0xffffffffffffff66]        # 1e760 <_Z19has_new_bits_kernelPhS_PjS0_>
+   1e7fa:	48 89 c7             	mov    rdi,rax
+   1e7fd:	e8 4e 4f fe ff       	call   3750 <__cudaRegisterFunction@plt>
+   1e802:	48 83 c4 20          	add    rsp,0x20
+   1e806:	90                   	nop
+   1e807:	c9                   	leave  
+   1e808:	c3                   	ret    
 
-000000000001e829 <_ZL24__sti____cudaRegisterAllv>:
-   1e829:	f3 0f 1e fa          	endbr64 
-   1e82d:	55                   	push   rbp
-   1e82e:	48 89 e5             	mov    rbp,rsp
-   1e831:	48 83 ec 10          	sub    rsp,0x10
-   1e835:	ff 15 a5 27 01 00    	call   QWORD PTR [rip+0x127a5]        # 30fe0 <mcount@GLIBC_2.2.5>
-   1e83b:	48 8d 05 0e 28 01 00 	lea    rax,[rip+0x1280e]        # 31050 <__TMC_END__>
-   1e842:	48 89 c7             	mov    rdi,rax
-   1e845:	e8 56 49 fe ff       	call   31a0 <__cudaRegisterFatBinary@plt>
-   1e84a:	48 89 05 5f d2 3b 00 	mov    QWORD PTR [rip+0x3bd25f],rax        # 3dbab0 <_ZL20__cudaFatCubinHandle>
-   1e851:	48 8d 05 65 ff ff ff 	lea    rax,[rip+0xffffffffffffff65]        # 1e7bd <_ZL31__nv_cudaEntityRegisterCallbackPPv>
-   1e858:	48 89 45 f8          	mov    QWORD PTR [rbp-0x8],rax
-   1e85c:	48 8b 55 f8          	mov    rdx,QWORD PTR [rbp-0x8]
-   1e860:	48 8b 05 49 d2 3b 00 	mov    rax,QWORD PTR [rip+0x3bd249]        # 3dbab0 <_ZL20__cudaFatCubinHandle>
-   1e867:	48 89 c7             	mov    rdi,rax
-   1e86a:	ff d2                	call   rdx
-   1e86c:	48 8b 05 3d d2 3b 00 	mov    rax,QWORD PTR [rip+0x3bd23d]        # 3dbab0 <_ZL20__cudaFatCubinHandle>
-   1e873:	48 89 c7             	mov    rdi,rax
-   1e876:	e8 05 48 fe ff       	call   3080 <__cudaRegisterFatBinaryEnd@plt>
-   1e87b:	48 8d 05 3d fd ff ff 	lea    rax,[rip+0xfffffffffffffd3d]        # 1e5bf <_ZL26__cudaUnregisterBinaryUtilv>
-   1e882:	48 89 c7             	mov    rdi,rax
-   1e885:	e8 c6 04 00 00       	call   1ed50 <atexit>
-   1e88a:	90                   	nop
-   1e88b:	c9                   	leave  
-   1e88c:	c3                   	ret    
+000000000001e809 <_ZL24__sti____cudaRegisterAllv>:
+   1e809:	f3 0f 1e fa          	endbr64 
+   1e80d:	55                   	push   rbp
+   1e80e:	48 89 e5             	mov    rbp,rsp
+   1e811:	48 83 ec 10          	sub    rsp,0x10
+   1e815:	ff 15 c5 27 01 00    	call   QWORD PTR [rip+0x127c5]        # 30fe0 <mcount@GLIBC_2.2.5>
+   1e81b:	48 8d 05 2e 28 01 00 	lea    rax,[rip+0x1282e]        # 31050 <__TMC_END__>
+   1e822:	48 89 c7             	mov    rdi,rax
+   1e825:	e8 76 49 fe ff       	call   31a0 <__cudaRegisterFatBinary@plt>
+   1e82a:	48 89 05 7f d2 3b 00 	mov    QWORD PTR [rip+0x3bd27f],rax        # 3dbab0 <_ZL20__cudaFatCubinHandle>
+   1e831:	48 8d 05 65 ff ff ff 	lea    rax,[rip+0xffffffffffffff65]        # 1e79d <_ZL31__nv_cudaEntityRegisterCallbackPPv>
+   1e838:	48 89 45 f8          	mov    QWORD PTR [rbp-0x8],rax
+   1e83c:	48 8b 55 f8          	mov    rdx,QWORD PTR [rbp-0x8]
+   1e840:	48 8b 05 69 d2 3b 00 	mov    rax,QWORD PTR [rip+0x3bd269]        # 3dbab0 <_ZL20__cudaFatCubinHandle>
+   1e847:	48 89 c7             	mov    rdi,rax
+   1e84a:	ff d2                	call   rdx
+   1e84c:	48 8b 05 5d d2 3b 00 	mov    rax,QWORD PTR [rip+0x3bd25d]        # 3dbab0 <_ZL20__cudaFatCubinHandle>
+   1e853:	48 89 c7             	mov    rdi,rax
+   1e856:	e8 25 48 fe ff       	call   3080 <__cudaRegisterFatBinaryEnd@plt>
+   1e85b:	48 8d 05 3d fd ff ff 	lea    rax,[rip+0xfffffffffffffd3d]        # 1e59f <_ZL26__cudaUnregisterBinaryUtilv>
+   1e862:	48 89 c7             	mov    rdi,rax
+   1e865:	e8 c6 04 00 00       	call   1ed30 <atexit>
+   1e86a:	90                   	nop
+   1e86b:	c9                   	leave  
+   1e86c:	c3                   	ret    
 
-000000000001e88d <_Z16cudaLaunchKernelIcE9cudaErrorPKT_4dim3S4_PPvmP11CUstream_st>:
-   1e88d:	55                   	push   rbp
-   1e88e:	48 89 e5             	mov    rbp,rsp
-   1e891:	48 83 ec 30          	sub    rsp,0x30
-   1e895:	ff 15 45 27 01 00    	call   QWORD PTR [rip+0x12745]        # 30fe0 <mcount@GLIBC_2.2.5>
-   1e89b:	48 89 7d f8          	mov    QWORD PTR [rbp-0x8],rdi
-   1e89f:	48 89 c8             	mov    rax,rcx
-   1e8a2:	44 89 c1             	mov    ecx,r8d
-   1e8a5:	4c 89 4d d0          	mov    QWORD PTR [rbp-0x30],r9
-   1e8a9:	48 89 75 e8          	mov    QWORD PTR [rbp-0x18],rsi
-   1e8ad:	89 55 f0             	mov    DWORD PTR [rbp-0x10],edx
-   1e8b0:	48 89 45 d8          	mov    QWORD PTR [rbp-0x28],rax
-   1e8b4:	89 4d e0             	mov    DWORD PTR [rbp-0x20],ecx
-   1e8b7:	4c 8b 45 d0          	mov    r8,QWORD PTR [rbp-0x30]
-   1e8bb:	48 8b 4d d8          	mov    rcx,QWORD PTR [rbp-0x28]
-   1e8bf:	8b 7d e0             	mov    edi,DWORD PTR [rbp-0x20]
-   1e8c2:	48 8b 75 e8          	mov    rsi,QWORD PTR [rbp-0x18]
-   1e8c6:	8b 55 f0             	mov    edx,DWORD PTR [rbp-0x10]
-   1e8c9:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1e8cd:	ff 75 18             	push   QWORD PTR [rbp+0x18]
-   1e8d0:	ff 75 10             	push   QWORD PTR [rbp+0x10]
-   1e8d3:	4d 89 c1             	mov    r9,r8
-   1e8d6:	41 89 f8             	mov    r8d,edi
-   1e8d9:	48 89 c7             	mov    rdi,rax
-   1e8dc:	e8 0f 4f fe ff       	call   37f0 <cudaLaunchKernel@plt>
-   1e8e1:	48 83 c4 10          	add    rsp,0x10
-   1e8e5:	c9                   	leave  
-   1e8e6:	c3                   	ret    
+000000000001e86d <_Z16cudaLaunchKernelIcE9cudaErrorPKT_4dim3S4_PPvmP11CUstream_st>:
+   1e86d:	55                   	push   rbp
+   1e86e:	48 89 e5             	mov    rbp,rsp
+   1e871:	48 83 ec 30          	sub    rsp,0x30
+   1e875:	ff 15 65 27 01 00    	call   QWORD PTR [rip+0x12765]        # 30fe0 <mcount@GLIBC_2.2.5>
+   1e87b:	48 89 7d f8          	mov    QWORD PTR [rbp-0x8],rdi
+   1e87f:	48 89 c8             	mov    rax,rcx
+   1e882:	44 89 c1             	mov    ecx,r8d
+   1e885:	4c 89 4d d0          	mov    QWORD PTR [rbp-0x30],r9
+   1e889:	48 89 75 e8          	mov    QWORD PTR [rbp-0x18],rsi
+   1e88d:	89 55 f0             	mov    DWORD PTR [rbp-0x10],edx
+   1e890:	48 89 45 d8          	mov    QWORD PTR [rbp-0x28],rax
+   1e894:	89 4d e0             	mov    DWORD PTR [rbp-0x20],ecx
+   1e897:	4c 8b 45 d0          	mov    r8,QWORD PTR [rbp-0x30]
+   1e89b:	48 8b 4d d8          	mov    rcx,QWORD PTR [rbp-0x28]
+   1e89f:	8b 7d e0             	mov    edi,DWORD PTR [rbp-0x20]
+   1e8a2:	48 8b 75 e8          	mov    rsi,QWORD PTR [rbp-0x18]
+   1e8a6:	8b 55 f0             	mov    edx,DWORD PTR [rbp-0x10]
+   1e8a9:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1e8ad:	ff 75 18             	push   QWORD PTR [rbp+0x18]
+   1e8b0:	ff 75 10             	push   QWORD PTR [rbp+0x10]
+   1e8b3:	4d 89 c1             	mov    r9,r8
+   1e8b6:	41 89 f8             	mov    r8d,edi
+   1e8b9:	48 89 c7             	mov    rdi,rax
+   1e8bc:	e8 2f 4f fe ff       	call   37f0 <cudaLaunchKernel@plt>
+   1e8c1:	48 83 c4 10          	add    rsp,0x10
+   1e8c5:	c9                   	leave  
+   1e8c6:	c3                   	ret    
 
-000000000001e8e7 <thread_do_work>:
-   1e8e7:	f3 0f 1e fa          	endbr64 
-   1e8eb:	55                   	push   rbp
-   1e8ec:	48 89 e5             	mov    rbp,rsp
-   1e8ef:	48 83 ec 30          	sub    rsp,0x30
-   1e8f3:	48 89 7d d8          	mov    QWORD PTR [rbp-0x28],rdi
-   1e8f7:	48 8b 45 d8          	mov    rax,QWORD PTR [rbp-0x28]
-   1e8fb:	48 89 45 e8          	mov    QWORD PTR [rbp-0x18],rax
-   1e8ff:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
-   1e903:	48 89 c7             	mov    rdi,rax
-   1e906:	e8 d5 4e fe ff       	call   37e0 <pthread_mutex_lock@plt>
-   1e90b:	eb 17                	jmp    1e924 <thread_do_work+0x3d>
-   1e90d:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
-   1e911:	48 8b 55 e8          	mov    rdx,QWORD PTR [rbp-0x18]
-   1e915:	48 83 c2 28          	add    rdx,0x28
-   1e919:	48 89 c6             	mov    rsi,rax
-   1e91c:	48 89 d7             	mov    rdi,rdx
-   1e91f:	e8 bc 48 fe ff       	call   31e0 <pthread_cond_wait@plt>
-   1e924:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
-   1e928:	8b 40 74             	mov    eax,DWORD PTR [rax+0x74]
-   1e92b:	85 c0                	test   eax,eax
-   1e92d:	75 0f                	jne    1e93e <thread_do_work+0x57>
-   1e92f:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
-   1e933:	0f b6 40 7c          	movzx  eax,BYTE PTR [rax+0x7c]
-   1e937:	83 f0 01             	xor    eax,0x1
-   1e93a:	84 c0                	test   al,al
-   1e93c:	75 cf                	jne    1e90d <thread_do_work+0x26>
-   1e93e:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
-   1e942:	0f b6 40 7c          	movzx  eax,BYTE PTR [rax+0x7c]
-   1e946:	84 c0                	test   al,al
-   1e948:	74 16                	je     1e960 <thread_do_work+0x79>
-   1e94a:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
-   1e94e:	48 89 c7             	mov    rdi,rax
-   1e951:	e8 8a 4b fe ff       	call   34e0 <pthread_mutex_unlock@plt>
-   1e956:	bf 00 00 00 00       	mov    edi,0x0
-   1e95b:	e8 90 4b fe ff       	call   34f0 <pthread_exit@plt>
-   1e960:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
-   1e964:	48 8b 50 60          	mov    rdx,QWORD PTR [rax+0x60]
-   1e968:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
-   1e96c:	8b 40 6c             	mov    eax,DWORD PTR [rax+0x6c]
-   1e96f:	48 98                	cdqe   
-   1e971:	48 c1 e0 04          	shl    rax,0x4
-   1e975:	48 01 d0             	add    rax,rdx
-   1e978:	48 8b 50 08          	mov    rdx,QWORD PTR [rax+0x8]
-   1e97c:	48 8b 00             	mov    rax,QWORD PTR [rax]
-   1e97f:	48 89 45 f0          	mov    QWORD PTR [rbp-0x10],rax
-   1e983:	48 89 55 f8          	mov    QWORD PTR [rbp-0x8],rdx
-   1e987:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
-   1e98b:	8b 40 6c             	mov    eax,DWORD PTR [rax+0x6c]
-   1e98e:	8d 50 01             	lea    edx,[rax+0x1]
-   1e991:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
-   1e995:	8b 48 68             	mov    ecx,DWORD PTR [rax+0x68]
-   1e998:	89 d0                	mov    eax,edx
-   1e99a:	99                   	cdq    
-   1e99b:	f7 f9                	idiv   ecx
-   1e99d:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
-   1e9a1:	89 50 6c             	mov    DWORD PTR [rax+0x6c],edx
-   1e9a4:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
-   1e9a8:	8b 40 74             	mov    eax,DWORD PTR [rax+0x74]
-   1e9ab:	8d 50 ff             	lea    edx,[rax-0x1]
-   1e9ae:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
-   1e9b2:	89 50 74             	mov    DWORD PTR [rax+0x74],edx
-   1e9b5:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
-   1e9b9:	8b 40 78             	mov    eax,DWORD PTR [rax+0x78]
-   1e9bc:	8d 50 01             	lea    edx,[rax+0x1]
+000000000001e8c7 <thread_do_work>:
+   1e8c7:	f3 0f 1e fa          	endbr64 
+   1e8cb:	55                   	push   rbp
+   1e8cc:	48 89 e5             	mov    rbp,rsp
+   1e8cf:	48 83 ec 30          	sub    rsp,0x30
+   1e8d3:	48 89 7d d8          	mov    QWORD PTR [rbp-0x28],rdi
+   1e8d7:	48 8b 45 d8          	mov    rax,QWORD PTR [rbp-0x28]
+   1e8db:	48 89 45 e8          	mov    QWORD PTR [rbp-0x18],rax
+   1e8df:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+   1e8e3:	48 89 c7             	mov    rdi,rax
+   1e8e6:	e8 f5 4e fe ff       	call   37e0 <pthread_mutex_lock@plt>
+   1e8eb:	eb 17                	jmp    1e904 <thread_do_work+0x3d>
+   1e8ed:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+   1e8f1:	48 8b 55 e8          	mov    rdx,QWORD PTR [rbp-0x18]
+   1e8f5:	48 83 c2 28          	add    rdx,0x28
+   1e8f9:	48 89 c6             	mov    rsi,rax
+   1e8fc:	48 89 d7             	mov    rdi,rdx
+   1e8ff:	e8 dc 48 fe ff       	call   31e0 <pthread_cond_wait@plt>
+   1e904:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+   1e908:	8b 40 74             	mov    eax,DWORD PTR [rax+0x74]
+   1e90b:	85 c0                	test   eax,eax
+   1e90d:	75 0f                	jne    1e91e <thread_do_work+0x57>
+   1e90f:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+   1e913:	0f b6 40 7c          	movzx  eax,BYTE PTR [rax+0x7c]
+   1e917:	83 f0 01             	xor    eax,0x1
+   1e91a:	84 c0                	test   al,al
+   1e91c:	75 cf                	jne    1e8ed <thread_do_work+0x26>
+   1e91e:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+   1e922:	0f b6 40 7c          	movzx  eax,BYTE PTR [rax+0x7c]
+   1e926:	84 c0                	test   al,al
+   1e928:	74 16                	je     1e940 <thread_do_work+0x79>
+   1e92a:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+   1e92e:	48 89 c7             	mov    rdi,rax
+   1e931:	e8 aa 4b fe ff       	call   34e0 <pthread_mutex_unlock@plt>
+   1e936:	bf 00 00 00 00       	mov    edi,0x0
+   1e93b:	e8 b0 4b fe ff       	call   34f0 <pthread_exit@plt>
+   1e940:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+   1e944:	48 8b 50 60          	mov    rdx,QWORD PTR [rax+0x60]
+   1e948:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+   1e94c:	8b 40 6c             	mov    eax,DWORD PTR [rax+0x6c]
+   1e94f:	48 98                	cdqe   
+   1e951:	48 c1 e0 04          	shl    rax,0x4
+   1e955:	48 01 d0             	add    rax,rdx
+   1e958:	48 8b 50 08          	mov    rdx,QWORD PTR [rax+0x8]
+   1e95c:	48 8b 00             	mov    rax,QWORD PTR [rax]
+   1e95f:	48 89 45 f0          	mov    QWORD PTR [rbp-0x10],rax
+   1e963:	48 89 55 f8          	mov    QWORD PTR [rbp-0x8],rdx
+   1e967:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+   1e96b:	8b 40 6c             	mov    eax,DWORD PTR [rax+0x6c]
+   1e96e:	8d 50 01             	lea    edx,[rax+0x1]
+   1e971:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+   1e975:	8b 48 68             	mov    ecx,DWORD PTR [rax+0x68]
+   1e978:	89 d0                	mov    eax,edx
+   1e97a:	99                   	cdq    
+   1e97b:	f7 f9                	idiv   ecx
+   1e97d:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+   1e981:	89 50 6c             	mov    DWORD PTR [rax+0x6c],edx
+   1e984:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+   1e988:	8b 40 74             	mov    eax,DWORD PTR [rax+0x74]
+   1e98b:	8d 50 ff             	lea    edx,[rax-0x1]
+   1e98e:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+   1e992:	89 50 74             	mov    DWORD PTR [rax+0x74],edx
+   1e995:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+   1e999:	8b 40 78             	mov    eax,DWORD PTR [rax+0x78]
+   1e99c:	8d 50 01             	lea    edx,[rax+0x1]
+   1e99f:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+   1e9a3:	89 50 78             	mov    DWORD PTR [rax+0x78],edx
+   1e9a6:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+   1e9aa:	48 89 c7             	mov    rdi,rax
+   1e9ad:	e8 2e 4b fe ff       	call   34e0 <pthread_mutex_unlock@plt>
+   1e9b2:	48 8b 55 f0          	mov    rdx,QWORD PTR [rbp-0x10]
+   1e9b6:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1e9ba:	48 89 c7             	mov    rdi,rax
+   1e9bd:	ff d2                	call   rdx
    1e9bf:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
-   1e9c3:	89 50 78             	mov    DWORD PTR [rax+0x78],edx
-   1e9c6:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
-   1e9ca:	48 89 c7             	mov    rdi,rax
-   1e9cd:	e8 0e 4b fe ff       	call   34e0 <pthread_mutex_unlock@plt>
-   1e9d2:	48 8b 55 f0          	mov    rdx,QWORD PTR [rbp-0x10]
-   1e9d6:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1e9da:	48 89 c7             	mov    rdi,rax
-   1e9dd:	ff d2                	call   rdx
-   1e9df:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
-   1e9e3:	48 89 c7             	mov    rdi,rax
-   1e9e6:	e8 f5 4d fe ff       	call   37e0 <pthread_mutex_lock@plt>
-   1e9eb:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
-   1e9ef:	8b 40 78             	mov    eax,DWORD PTR [rax+0x78]
-   1e9f2:	8d 50 ff             	lea    edx,[rax-0x1]
-   1e9f5:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
-   1e9f9:	89 50 78             	mov    DWORD PTR [rax+0x78],edx
-   1e9fc:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
-   1ea00:	8b 40 78             	mov    eax,DWORD PTR [rax+0x78]
-   1ea03:	85 c0                	test   eax,eax
-   1ea05:	75 1b                	jne    1ea22 <thread_do_work+0x13b>
-   1ea07:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
-   1ea0b:	8b 40 74             	mov    eax,DWORD PTR [rax+0x74]
-   1ea0e:	85 c0                	test   eax,eax
-   1ea10:	75 10                	jne    1ea22 <thread_do_work+0x13b>
-   1ea12:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
-   1ea16:	48 83 c0 28          	add    rax,0x28
-   1ea1a:	48 89 c7             	mov    rdi,rax
-   1ea1d:	e8 9e 49 fe ff       	call   33c0 <pthread_cond_signal@plt>
-   1ea22:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
-   1ea26:	48 89 c7             	mov    rdi,rax
-   1ea29:	e8 b2 4a fe ff       	call   34e0 <pthread_mutex_unlock@plt>
-   1ea2e:	e9 cc fe ff ff       	jmp    1e8ff <thread_do_work+0x18>
+   1e9c3:	48 89 c7             	mov    rdi,rax
+   1e9c6:	e8 15 4e fe ff       	call   37e0 <pthread_mutex_lock@plt>
+   1e9cb:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+   1e9cf:	8b 40 78             	mov    eax,DWORD PTR [rax+0x78]
+   1e9d2:	8d 50 ff             	lea    edx,[rax-0x1]
+   1e9d5:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+   1e9d9:	89 50 78             	mov    DWORD PTR [rax+0x78],edx
+   1e9dc:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+   1e9e0:	8b 40 78             	mov    eax,DWORD PTR [rax+0x78]
+   1e9e3:	85 c0                	test   eax,eax
+   1e9e5:	75 1b                	jne    1ea02 <thread_do_work+0x13b>
+   1e9e7:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+   1e9eb:	8b 40 74             	mov    eax,DWORD PTR [rax+0x74]
+   1e9ee:	85 c0                	test   eax,eax
+   1e9f0:	75 10                	jne    1ea02 <thread_do_work+0x13b>
+   1e9f2:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+   1e9f6:	48 83 c0 28          	add    rax,0x28
+   1e9fa:	48 89 c7             	mov    rdi,rax
+   1e9fd:	e8 be 49 fe ff       	call   33c0 <pthread_cond_signal@plt>
+   1ea02:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+   1ea06:	48 89 c7             	mov    rdi,rax
+   1ea09:	e8 d2 4a fe ff       	call   34e0 <pthread_mutex_unlock@plt>
+   1ea0e:	e9 cc fe ff ff       	jmp    1e8df <thread_do_work+0x18>
 
-000000000001ea33 <threadpool_create>:
-   1ea33:	f3 0f 1e fa          	endbr64 
-   1ea37:	55                   	push   rbp
-   1ea38:	48 89 e5             	mov    rbp,rsp
-   1ea3b:	48 83 ec 20          	sub    rsp,0x20
-   1ea3f:	89 7d ec             	mov    DWORD PTR [rbp-0x14],edi
-   1ea42:	bf 80 00 00 00       	mov    edi,0x80
-   1ea47:	e8 b4 4a fe ff       	call   3500 <malloc@plt>
-   1ea4c:	48 89 45 f8          	mov    QWORD PTR [rbp-0x8],rax
-   1ea50:	8b 45 ec             	mov    eax,DWORD PTR [rbp-0x14]
-   1ea53:	48 98                	cdqe   
-   1ea55:	48 c1 e0 03          	shl    rax,0x3
-   1ea59:	48 89 c7             	mov    rdi,rax
-   1ea5c:	e8 9f 4a fe ff       	call   3500 <malloc@plt>
-   1ea61:	48 89 c2             	mov    rdx,rax
-   1ea64:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1ea68:	48 89 50 58          	mov    QWORD PTR [rax+0x58],rdx
-   1ea6c:	bf 40 06 00 00       	mov    edi,0x640
-   1ea71:	e8 8a 4a fe ff       	call   3500 <malloc@plt>
-   1ea76:	48 89 c2             	mov    rdx,rax
-   1ea79:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1ea7d:	48 89 50 60          	mov    QWORD PTR [rax+0x60],rdx
-   1ea81:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1ea85:	c7 40 68 64 00 00 00 	mov    DWORD PTR [rax+0x68],0x64
-   1ea8c:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1ea90:	c7 40 6c 00 00 00 00 	mov    DWORD PTR [rax+0x6c],0x0
-   1ea97:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1ea9b:	c7 40 70 00 00 00 00 	mov    DWORD PTR [rax+0x70],0x0
-   1eaa2:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1eaa6:	c7 40 74 00 00 00 00 	mov    DWORD PTR [rax+0x74],0x0
-   1eaad:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1eab1:	c7 40 78 00 00 00 00 	mov    DWORD PTR [rax+0x78],0x0
-   1eab8:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1eabc:	c6 40 7c 00          	mov    BYTE PTR [rax+0x7c],0x0
-   1eac0:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1eac4:	be 00 00 00 00       	mov    esi,0x0
-   1eac9:	48 89 c7             	mov    rdi,rax
-   1eacc:	e8 bf 4c fe ff       	call   3790 <pthread_mutex_init@plt>
-   1ead1:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1ead5:	48 83 c0 28          	add    rax,0x28
-   1ead9:	be 00 00 00 00       	mov    esi,0x0
-   1eade:	48 89 c7             	mov    rdi,rax
-   1eae1:	e8 ba 49 fe ff       	call   34a0 <pthread_cond_init@plt>
-   1eae6:	c7 45 f4 00 00 00 00 	mov    DWORD PTR [rbp-0xc],0x0
-   1eaed:	eb 34                	jmp    1eb23 <threadpool_create+0xf0>
-   1eaef:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1eaf3:	48 8b 50 58          	mov    rdx,QWORD PTR [rax+0x58]
-   1eaf7:	8b 45 f4             	mov    eax,DWORD PTR [rbp-0xc]
-   1eafa:	48 98                	cdqe   
-   1eafc:	48 c1 e0 03          	shl    rax,0x3
-   1eb00:	48 8d 3c 02          	lea    rdi,[rdx+rax*1]
-   1eb04:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1eb08:	48 89 c1             	mov    rcx,rax
-   1eb0b:	48 8d 05 d5 fd ff ff 	lea    rax,[rip+0xfffffffffffffdd5]        # 1e8e7 <thread_do_work>
-   1eb12:	48 89 c2             	mov    rdx,rax
-   1eb15:	be 00 00 00 00       	mov    esi,0x0
-   1eb1a:	e8 81 4a fe ff       	call   35a0 <pthread_create@plt>
-   1eb1f:	83 45 f4 01          	add    DWORD PTR [rbp-0xc],0x1
-   1eb23:	8b 45 f4             	mov    eax,DWORD PTR [rbp-0xc]
-   1eb26:	3b 45 ec             	cmp    eax,DWORD PTR [rbp-0x14]
-   1eb29:	7c c4                	jl     1eaef <threadpool_create+0xbc>
-   1eb2b:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1eb2f:	c9                   	leave  
-   1eb30:	c3                   	ret    
+000000000001ea13 <threadpool_create>:
+   1ea13:	f3 0f 1e fa          	endbr64 
+   1ea17:	55                   	push   rbp
+   1ea18:	48 89 e5             	mov    rbp,rsp
+   1ea1b:	48 83 ec 20          	sub    rsp,0x20
+   1ea1f:	89 7d ec             	mov    DWORD PTR [rbp-0x14],edi
+   1ea22:	bf 80 00 00 00       	mov    edi,0x80
+   1ea27:	e8 d4 4a fe ff       	call   3500 <malloc@plt>
+   1ea2c:	48 89 45 f8          	mov    QWORD PTR [rbp-0x8],rax
+   1ea30:	8b 45 ec             	mov    eax,DWORD PTR [rbp-0x14]
+   1ea33:	48 98                	cdqe   
+   1ea35:	48 c1 e0 03          	shl    rax,0x3
+   1ea39:	48 89 c7             	mov    rdi,rax
+   1ea3c:	e8 bf 4a fe ff       	call   3500 <malloc@plt>
+   1ea41:	48 89 c2             	mov    rdx,rax
+   1ea44:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1ea48:	48 89 50 58          	mov    QWORD PTR [rax+0x58],rdx
+   1ea4c:	bf 40 06 00 00       	mov    edi,0x640
+   1ea51:	e8 aa 4a fe ff       	call   3500 <malloc@plt>
+   1ea56:	48 89 c2             	mov    rdx,rax
+   1ea59:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1ea5d:	48 89 50 60          	mov    QWORD PTR [rax+0x60],rdx
+   1ea61:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1ea65:	c7 40 68 64 00 00 00 	mov    DWORD PTR [rax+0x68],0x64
+   1ea6c:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1ea70:	c7 40 6c 00 00 00 00 	mov    DWORD PTR [rax+0x6c],0x0
+   1ea77:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1ea7b:	c7 40 70 00 00 00 00 	mov    DWORD PTR [rax+0x70],0x0
+   1ea82:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1ea86:	c7 40 74 00 00 00 00 	mov    DWORD PTR [rax+0x74],0x0
+   1ea8d:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1ea91:	c7 40 78 00 00 00 00 	mov    DWORD PTR [rax+0x78],0x0
+   1ea98:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1ea9c:	c6 40 7c 00          	mov    BYTE PTR [rax+0x7c],0x0
+   1eaa0:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1eaa4:	be 00 00 00 00       	mov    esi,0x0
+   1eaa9:	48 89 c7             	mov    rdi,rax
+   1eaac:	e8 df 4c fe ff       	call   3790 <pthread_mutex_init@plt>
+   1eab1:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1eab5:	48 83 c0 28          	add    rax,0x28
+   1eab9:	be 00 00 00 00       	mov    esi,0x0
+   1eabe:	48 89 c7             	mov    rdi,rax
+   1eac1:	e8 da 49 fe ff       	call   34a0 <pthread_cond_init@plt>
+   1eac6:	c7 45 f4 00 00 00 00 	mov    DWORD PTR [rbp-0xc],0x0
+   1eacd:	eb 34                	jmp    1eb03 <threadpool_create+0xf0>
+   1eacf:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1ead3:	48 8b 50 58          	mov    rdx,QWORD PTR [rax+0x58]
+   1ead7:	8b 45 f4             	mov    eax,DWORD PTR [rbp-0xc]
+   1eada:	48 98                	cdqe   
+   1eadc:	48 c1 e0 03          	shl    rax,0x3
+   1eae0:	48 8d 3c 02          	lea    rdi,[rdx+rax*1]
+   1eae4:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1eae8:	48 89 c1             	mov    rcx,rax
+   1eaeb:	48 8d 05 d5 fd ff ff 	lea    rax,[rip+0xfffffffffffffdd5]        # 1e8c7 <thread_do_work>
+   1eaf2:	48 89 c2             	mov    rdx,rax
+   1eaf5:	be 00 00 00 00       	mov    esi,0x0
+   1eafa:	e8 a1 4a fe ff       	call   35a0 <pthread_create@plt>
+   1eaff:	83 45 f4 01          	add    DWORD PTR [rbp-0xc],0x1
+   1eb03:	8b 45 f4             	mov    eax,DWORD PTR [rbp-0xc]
+   1eb06:	3b 45 ec             	cmp    eax,DWORD PTR [rbp-0x14]
+   1eb09:	7c c4                	jl     1eacf <threadpool_create+0xbc>
+   1eb0b:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1eb0f:	c9                   	leave  
+   1eb10:	c3                   	ret    
 
-000000000001eb31 <threadpool_add_job>:
-   1eb31:	f3 0f 1e fa          	endbr64 
-   1eb35:	55                   	push   rbp
-   1eb36:	48 89 e5             	mov    rbp,rsp
-   1eb39:	48 83 ec 20          	sub    rsp,0x20
-   1eb3d:	48 89 7d f8          	mov    QWORD PTR [rbp-0x8],rdi
-   1eb41:	48 89 75 f0          	mov    QWORD PTR [rbp-0x10],rsi
-   1eb45:	48 89 55 e8          	mov    QWORD PTR [rbp-0x18],rdx
-   1eb49:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1eb4d:	48 89 c7             	mov    rdi,rax
-   1eb50:	e8 8b 4c fe ff       	call   37e0 <pthread_mutex_lock@plt>
-   1eb55:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1eb59:	48 8b 50 60          	mov    rdx,QWORD PTR [rax+0x60]
-   1eb5d:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1eb61:	8b 40 70             	mov    eax,DWORD PTR [rax+0x70]
-   1eb64:	48 98                	cdqe   
-   1eb66:	48 c1 e0 04          	shl    rax,0x4
-   1eb6a:	48 01 c2             	add    rdx,rax
-   1eb6d:	48 8b 45 f0          	mov    rax,QWORD PTR [rbp-0x10]
-   1eb71:	48 89 02             	mov    QWORD PTR [rdx],rax
+000000000001eb11 <threadpool_add_job>:
+   1eb11:	f3 0f 1e fa          	endbr64 
+   1eb15:	55                   	push   rbp
+   1eb16:	48 89 e5             	mov    rbp,rsp
+   1eb19:	48 83 ec 20          	sub    rsp,0x20
+   1eb1d:	48 89 7d f8          	mov    QWORD PTR [rbp-0x8],rdi
+   1eb21:	48 89 75 f0          	mov    QWORD PTR [rbp-0x10],rsi
+   1eb25:	48 89 55 e8          	mov    QWORD PTR [rbp-0x18],rdx
+   1eb29:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1eb2d:	48 89 c7             	mov    rdi,rax
+   1eb30:	e8 ab 4c fe ff       	call   37e0 <pthread_mutex_lock@plt>
+   1eb35:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1eb39:	48 8b 50 60          	mov    rdx,QWORD PTR [rax+0x60]
+   1eb3d:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1eb41:	8b 40 70             	mov    eax,DWORD PTR [rax+0x70]
+   1eb44:	48 98                	cdqe   
+   1eb46:	48 c1 e0 04          	shl    rax,0x4
+   1eb4a:	48 01 c2             	add    rdx,rax
+   1eb4d:	48 8b 45 f0          	mov    rax,QWORD PTR [rbp-0x10]
+   1eb51:	48 89 02             	mov    QWORD PTR [rdx],rax
+   1eb54:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1eb58:	48 8b 50 60          	mov    rdx,QWORD PTR [rax+0x60]
+   1eb5c:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1eb60:	8b 40 70             	mov    eax,DWORD PTR [rax+0x70]
+   1eb63:	48 98                	cdqe   
+   1eb65:	48 c1 e0 04          	shl    rax,0x4
+   1eb69:	48 01 c2             	add    rdx,rax
+   1eb6c:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+   1eb70:	48 89 42 08          	mov    QWORD PTR [rdx+0x8],rax
    1eb74:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1eb78:	48 8b 50 60          	mov    rdx,QWORD PTR [rax+0x60]
-   1eb7c:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1eb80:	8b 40 70             	mov    eax,DWORD PTR [rax+0x70]
-   1eb83:	48 98                	cdqe   
-   1eb85:	48 c1 e0 04          	shl    rax,0x4
-   1eb89:	48 01 c2             	add    rdx,rax
-   1eb8c:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
-   1eb90:	48 89 42 08          	mov    QWORD PTR [rdx+0x8],rax
-   1eb94:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1eb98:	8b 40 70             	mov    eax,DWORD PTR [rax+0x70]
-   1eb9b:	8d 50 01             	lea    edx,[rax+0x1]
-   1eb9e:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1eba2:	8b 48 68             	mov    ecx,DWORD PTR [rax+0x68]
-   1eba5:	89 d0                	mov    eax,edx
-   1eba7:	99                   	cdq    
-   1eba8:	f7 f9                	idiv   ecx
-   1ebaa:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1ebae:	89 50 70             	mov    DWORD PTR [rax+0x70],edx
-   1ebb1:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1ebb5:	8b 40 74             	mov    eax,DWORD PTR [rax+0x74]
-   1ebb8:	8d 50 01             	lea    edx,[rax+0x1]
-   1ebbb:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1ebbf:	89 50 74             	mov    DWORD PTR [rax+0x74],edx
-   1ebc2:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1ebc6:	48 83 c0 28          	add    rax,0x28
-   1ebca:	48 89 c7             	mov    rdi,rax
-   1ebcd:	e8 ee 47 fe ff       	call   33c0 <pthread_cond_signal@plt>
-   1ebd2:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1ebd6:	48 89 c7             	mov    rdi,rax
-   1ebd9:	e8 02 49 fe ff       	call   34e0 <pthread_mutex_unlock@plt>
-   1ebde:	90                   	nop
-   1ebdf:	c9                   	leave  
-   1ebe0:	c3                   	ret    
+   1eb78:	8b 40 70             	mov    eax,DWORD PTR [rax+0x70]
+   1eb7b:	8d 50 01             	lea    edx,[rax+0x1]
+   1eb7e:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1eb82:	8b 48 68             	mov    ecx,DWORD PTR [rax+0x68]
+   1eb85:	89 d0                	mov    eax,edx
+   1eb87:	99                   	cdq    
+   1eb88:	f7 f9                	idiv   ecx
+   1eb8a:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1eb8e:	89 50 70             	mov    DWORD PTR [rax+0x70],edx
+   1eb91:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1eb95:	8b 40 74             	mov    eax,DWORD PTR [rax+0x74]
+   1eb98:	8d 50 01             	lea    edx,[rax+0x1]
+   1eb9b:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1eb9f:	89 50 74             	mov    DWORD PTR [rax+0x74],edx
+   1eba2:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1eba6:	48 83 c0 28          	add    rax,0x28
+   1ebaa:	48 89 c7             	mov    rdi,rax
+   1ebad:	e8 0e 48 fe ff       	call   33c0 <pthread_cond_signal@plt>
+   1ebb2:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1ebb6:	48 89 c7             	mov    rdi,rax
+   1ebb9:	e8 22 49 fe ff       	call   34e0 <pthread_mutex_unlock@plt>
+   1ebbe:	90                   	nop
+   1ebbf:	c9                   	leave  
+   1ebc0:	c3                   	ret    
 
-000000000001ebe1 <threadpool_wait>:
-   1ebe1:	f3 0f 1e fa          	endbr64 
-   1ebe5:	55                   	push   rbp
-   1ebe6:	48 89 e5             	mov    rbp,rsp
-   1ebe9:	48 83 ec 10          	sub    rsp,0x10
-   1ebed:	48 89 7d f8          	mov    QWORD PTR [rbp-0x8],rdi
-   1ebf1:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1ebf5:	48 89 c7             	mov    rdi,rax
-   1ebf8:	e8 e3 4b fe ff       	call   37e0 <pthread_mutex_lock@plt>
-   1ebfd:	eb 17                	jmp    1ec16 <threadpool_wait+0x35>
-   1ebff:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1ec03:	48 8b 55 f8          	mov    rdx,QWORD PTR [rbp-0x8]
-   1ec07:	48 83 c2 28          	add    rdx,0x28
-   1ec0b:	48 89 c6             	mov    rsi,rax
-   1ec0e:	48 89 d7             	mov    rdi,rdx
-   1ec11:	e8 ca 45 fe ff       	call   31e0 <pthread_cond_wait@plt>
-   1ec16:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1ec1a:	8b 40 74             	mov    eax,DWORD PTR [rax+0x74]
-   1ec1d:	85 c0                	test   eax,eax
-   1ec1f:	7f de                	jg     1ebff <threadpool_wait+0x1e>
-   1ec21:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1ec25:	8b 40 78             	mov    eax,DWORD PTR [rax+0x78]
-   1ec28:	85 c0                	test   eax,eax
-   1ec2a:	7f d3                	jg     1ebff <threadpool_wait+0x1e>
-   1ec2c:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1ec30:	48 89 c7             	mov    rdi,rax
-   1ec33:	e8 a8 48 fe ff       	call   34e0 <pthread_mutex_unlock@plt>
-   1ec38:	90                   	nop
-   1ec39:	c9                   	leave  
-   1ec3a:	c3                   	ret    
+000000000001ebc1 <threadpool_wait>:
+   1ebc1:	f3 0f 1e fa          	endbr64 
+   1ebc5:	55                   	push   rbp
+   1ebc6:	48 89 e5             	mov    rbp,rsp
+   1ebc9:	48 83 ec 10          	sub    rsp,0x10
+   1ebcd:	48 89 7d f8          	mov    QWORD PTR [rbp-0x8],rdi
+   1ebd1:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1ebd5:	48 89 c7             	mov    rdi,rax
+   1ebd8:	e8 03 4c fe ff       	call   37e0 <pthread_mutex_lock@plt>
+   1ebdd:	eb 17                	jmp    1ebf6 <threadpool_wait+0x35>
+   1ebdf:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1ebe3:	48 8b 55 f8          	mov    rdx,QWORD PTR [rbp-0x8]
+   1ebe7:	48 83 c2 28          	add    rdx,0x28
+   1ebeb:	48 89 c6             	mov    rsi,rax
+   1ebee:	48 89 d7             	mov    rdi,rdx
+   1ebf1:	e8 ea 45 fe ff       	call   31e0 <pthread_cond_wait@plt>
+   1ebf6:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1ebfa:	8b 40 74             	mov    eax,DWORD PTR [rax+0x74]
+   1ebfd:	85 c0                	test   eax,eax
+   1ebff:	7f de                	jg     1ebdf <threadpool_wait+0x1e>
+   1ec01:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1ec05:	8b 40 78             	mov    eax,DWORD PTR [rax+0x78]
+   1ec08:	85 c0                	test   eax,eax
+   1ec0a:	7f d3                	jg     1ebdf <threadpool_wait+0x1e>
+   1ec0c:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1ec10:	48 89 c7             	mov    rdi,rax
+   1ec13:	e8 c8 48 fe ff       	call   34e0 <pthread_mutex_unlock@plt>
+   1ec18:	90                   	nop
+   1ec19:	c9                   	leave  
+   1ec1a:	c3                   	ret    
 
-000000000001ec3b <threadpool_destroy>:
-   1ec3b:	f3 0f 1e fa          	endbr64 
-   1ec3f:	55                   	push   rbp
-   1ec40:	48 89 e5             	mov    rbp,rsp
-   1ec43:	48 83 ec 20          	sub    rsp,0x20
-   1ec47:	48 89 7d e8          	mov    QWORD PTR [rbp-0x18],rdi
-   1ec4b:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
-   1ec4f:	48 89 c7             	mov    rdi,rax
-   1ec52:	e8 89 4b fe ff       	call   37e0 <pthread_mutex_lock@plt>
-   1ec57:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
-   1ec5b:	c6 40 7c 01          	mov    BYTE PTR [rax+0x7c],0x1
-   1ec5f:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
-   1ec63:	48 83 c0 28          	add    rax,0x28
-   1ec67:	48 89 c7             	mov    rdi,rax
-   1ec6a:	e8 b1 44 fe ff       	call   3120 <pthread_cond_broadcast@plt>
-   1ec6f:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
-   1ec73:	48 89 c7             	mov    rdi,rax
-   1ec76:	e8 65 48 fe ff       	call   34e0 <pthread_mutex_unlock@plt>
-   1ec7b:	c7 45 fc 00 00 00 00 	mov    DWORD PTR [rbp-0x4],0x0
-   1ec82:	eb 28                	jmp    1ecac <threadpool_destroy+0x71>
-   1ec84:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
-   1ec88:	48 8b 50 58          	mov    rdx,QWORD PTR [rax+0x58]
-   1ec8c:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
-   1ec8f:	48 98                	cdqe   
-   1ec91:	48 c1 e0 03          	shl    rax,0x3
-   1ec95:	48 01 d0             	add    rax,rdx
-   1ec98:	48 8b 00             	mov    rax,QWORD PTR [rax]
-   1ec9b:	be 00 00 00 00       	mov    esi,0x0
-   1eca0:	48 89 c7             	mov    rdi,rax
-   1eca3:	e8 b8 4a fe ff       	call   3760 <pthread_join@plt>
-   1eca8:	83 45 fc 01          	add    DWORD PTR [rbp-0x4],0x1
-   1ecac:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
-   1ecb0:	8b 40 68             	mov    eax,DWORD PTR [rax+0x68]
-   1ecb3:	39 45 fc             	cmp    DWORD PTR [rbp-0x4],eax
-   1ecb6:	7c cc                	jl     1ec84 <threadpool_destroy+0x49>
-   1ecb8:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+000000000001ec1b <threadpool_destroy>:
+   1ec1b:	f3 0f 1e fa          	endbr64 
+   1ec1f:	55                   	push   rbp
+   1ec20:	48 89 e5             	mov    rbp,rsp
+   1ec23:	48 83 ec 20          	sub    rsp,0x20
+   1ec27:	48 89 7d e8          	mov    QWORD PTR [rbp-0x18],rdi
+   1ec2b:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+   1ec2f:	48 89 c7             	mov    rdi,rax
+   1ec32:	e8 a9 4b fe ff       	call   37e0 <pthread_mutex_lock@plt>
+   1ec37:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+   1ec3b:	c6 40 7c 01          	mov    BYTE PTR [rax+0x7c],0x1
+   1ec3f:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+   1ec43:	48 83 c0 28          	add    rax,0x28
+   1ec47:	48 89 c7             	mov    rdi,rax
+   1ec4a:	e8 d1 44 fe ff       	call   3120 <pthread_cond_broadcast@plt>
+   1ec4f:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+   1ec53:	48 89 c7             	mov    rdi,rax
+   1ec56:	e8 85 48 fe ff       	call   34e0 <pthread_mutex_unlock@plt>
+   1ec5b:	c7 45 fc 00 00 00 00 	mov    DWORD PTR [rbp-0x4],0x0
+   1ec62:	eb 28                	jmp    1ec8c <threadpool_destroy+0x71>
+   1ec64:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+   1ec68:	48 8b 50 58          	mov    rdx,QWORD PTR [rax+0x58]
+   1ec6c:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+   1ec6f:	48 98                	cdqe   
+   1ec71:	48 c1 e0 03          	shl    rax,0x3
+   1ec75:	48 01 d0             	add    rax,rdx
+   1ec78:	48 8b 00             	mov    rax,QWORD PTR [rax]
+   1ec7b:	be 00 00 00 00       	mov    esi,0x0
+   1ec80:	48 89 c7             	mov    rdi,rax
+   1ec83:	e8 d8 4a fe ff       	call   3760 <pthread_join@plt>
+   1ec88:	83 45 fc 01          	add    DWORD PTR [rbp-0x4],0x1
+   1ec8c:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+   1ec90:	8b 40 68             	mov    eax,DWORD PTR [rax+0x68]
+   1ec93:	39 45 fc             	cmp    DWORD PTR [rbp-0x4],eax
+   1ec96:	7c cc                	jl     1ec64 <threadpool_destroy+0x49>
+   1ec98:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+   1ec9c:	48 89 c7             	mov    rdi,rax
+   1ec9f:	e8 fc 45 fe ff       	call   32a0 <pthread_mutex_destroy@plt>
+   1eca4:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+   1eca8:	48 83 c0 28          	add    rax,0x28
+   1ecac:	48 89 c7             	mov    rdi,rax
+   1ecaf:	e8 4c 49 fe ff       	call   3600 <pthread_cond_destroy@plt>
+   1ecb4:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
+   1ecb8:	48 8b 40 58          	mov    rax,QWORD PTR [rax+0x58]
    1ecbc:	48 89 c7             	mov    rdi,rax
-   1ecbf:	e8 dc 45 fe ff       	call   32a0 <pthread_mutex_destroy@plt>
+   1ecbf:	e8 ac 43 fe ff       	call   3070 <free@plt>
    1ecc4:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
-   1ecc8:	48 83 c0 28          	add    rax,0x28
+   1ecc8:	48 8b 40 60          	mov    rax,QWORD PTR [rax+0x60]
    1eccc:	48 89 c7             	mov    rdi,rax
-   1eccf:	e8 2c 49 fe ff       	call   3600 <pthread_cond_destroy@plt>
+   1eccf:	e8 9c 43 fe ff       	call   3070 <free@plt>
    1ecd4:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
-   1ecd8:	48 8b 40 58          	mov    rax,QWORD PTR [rax+0x58]
-   1ecdc:	48 89 c7             	mov    rdi,rax
-   1ecdf:	e8 8c 43 fe ff       	call   3070 <free@plt>
-   1ece4:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
-   1ece8:	48 8b 40 60          	mov    rax,QWORD PTR [rax+0x60]
-   1ecec:	48 89 c7             	mov    rdi,rax
-   1ecef:	e8 7c 43 fe ff       	call   3070 <free@plt>
-   1ecf4:	48 8b 45 e8          	mov    rax,QWORD PTR [rbp-0x18]
-   1ecf8:	48 89 c7             	mov    rdi,rax
-   1ecfb:	e8 70 43 fe ff       	call   3070 <free@plt>
-   1ed00:	90                   	nop
-   1ed01:	c9                   	leave  
-   1ed02:	c3                   	ret    
+   1ecd8:	48 89 c7             	mov    rdi,rax
+   1ecdb:	e8 90 43 fe ff       	call   3070 <free@plt>
+   1ece0:	90                   	nop
+   1ece1:	c9                   	leave  
+   1ece2:	c3                   	ret    
 
-000000000001ed03 <print_task>:
-   1ed03:	f3 0f 1e fa          	endbr64 
-   1ed07:	55                   	push   rbp
-   1ed08:	48 89 e5             	mov    rbp,rsp
-   1ed0b:	48 83 ec 10          	sub    rsp,0x10
-   1ed0f:	48 89 7d f8          	mov    QWORD PTR [rbp-0x8],rdi
-   1ed13:	e8 c8 48 fe ff       	call   35e0 <pthread_self@plt>
-   1ed18:	48 89 c1             	mov    rcx,rax
-   1ed1b:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
-   1ed1f:	48 89 c2             	mov    rdx,rax
-   1ed22:	48 89 ce             	mov    rsi,rcx
-   1ed25:	48 8d 05 25 90 00 00 	lea    rax,[rip+0x9025]        # 27d51 <interesting_8+0x1c9>
-   1ed2c:	48 89 c7             	mov    rdi,rax
-   1ed2f:	b8 00 00 00 00       	mov    eax,0x0
-   1ed34:	e8 47 45 fe ff       	call   3280 <printf@plt>
-   1ed39:	bf 01 00 00 00       	mov    edi,0x1
-   1ed3e:	e8 3d 4a fe ff       	call   3780 <sleep@plt>
-   1ed43:	90                   	nop
-   1ed44:	c9                   	leave  
-   1ed45:	c3                   	ret    
-   1ed46:	66 2e 0f 1f 84 00 00 	cs nop WORD PTR [rax+rax*1+0x0]
-   1ed4d:	00 00 00 
+000000000001ece3 <print_task>:
+   1ece3:	f3 0f 1e fa          	endbr64 
+   1ece7:	55                   	push   rbp
+   1ece8:	48 89 e5             	mov    rbp,rsp
+   1eceb:	48 83 ec 10          	sub    rsp,0x10
+   1ecef:	48 89 7d f8          	mov    QWORD PTR [rbp-0x8],rdi
+   1ecf3:	e8 e8 48 fe ff       	call   35e0 <pthread_self@plt>
+   1ecf8:	48 89 c1             	mov    rcx,rax
+   1ecfb:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+   1ecff:	48 89 c2             	mov    rdx,rax
+   1ed02:	48 89 ce             	mov    rsi,rcx
+   1ed05:	48 8d 05 45 90 00 00 	lea    rax,[rip+0x9045]        # 27d51 <interesting_8+0x1c9>
+   1ed0c:	48 89 c7             	mov    rdi,rax
+   1ed0f:	b8 00 00 00 00       	mov    eax,0x0
+   1ed14:	e8 67 45 fe ff       	call   3280 <printf@plt>
+   1ed19:	bf 01 00 00 00       	mov    edi,0x1
+   1ed1e:	e8 5d 4a fe ff       	call   3780 <sleep@plt>
+   1ed23:	90                   	nop
+   1ed24:	c9                   	leave  
+   1ed25:	c3                   	ret    
+   1ed26:	66 2e 0f 1f 84 00 00 	cs nop WORD PTR [rax+rax*1+0x0]
+   1ed2d:	00 00 00 
 
-000000000001ed50 <atexit>:
+000000000001ed30 <atexit>:
+   1ed30:	f3 0f 1e fa          	endbr64 
+   1ed34:	48 8b 15 cd 22 01 00 	mov    rdx,QWORD PTR [rip+0x122cd]        # 31008 <__dso_handle>
+   1ed3b:	31 f6                	xor    esi,esi
+   1ed3d:	e9 8e 49 fe ff       	jmp    36d0 <__cxa_atexit@plt>
+   1ed42:	66 2e 0f 1f 84 00 00 	cs nop WORD PTR [rax+rax*1+0x0]
+   1ed49:	00 00 00 
+   1ed4c:	0f 1f 40 00          	nop    DWORD PTR [rax+0x0]
+
+000000000001ed50 <__stack_chk_fail_local>:
    1ed50:	f3 0f 1e fa          	endbr64 
-   1ed54:	48 8b 15 ad 22 01 00 	mov    rdx,QWORD PTR [rip+0x122ad]        # 31008 <__dso_handle>
-   1ed5b:	31 f6                	xor    esi,esi
-   1ed5d:	e9 6e 49 fe ff       	jmp    36d0 <__cxa_atexit@plt>
-   1ed62:	66 2e 0f 1f 84 00 00 	cs nop WORD PTR [rax+rax*1+0x0]
-   1ed69:	00 00 00 
-   1ed6c:	0f 1f 40 00          	nop    DWORD PTR [rax+0x0]
-
-000000000001ed70 <__stack_chk_fail_local>:
-   1ed70:	f3 0f 1e fa          	endbr64 
-   1ed74:	50                   	push   rax
-   1ed75:	58                   	pop    rax
-   1ed76:	48 83 ec 08          	sub    rsp,0x8
-   1ed7a:	e8 c1 44 fe ff       	call   3240 <__stack_chk_fail@plt>
+   1ed54:	50                   	push   rax
+   1ed55:	58                   	pop    rax
+   1ed56:	48 83 ec 08          	sub    rsp,0x8
+   1ed5a:	e8 e1 44 fe ff       	call   3240 <__stack_chk_fail@plt>
