@@ -26,8 +26,7 @@ has_new_bits_asm:
     ; Inicializa contadores
     xor rax, rax  ; ret = 0
     xor rcx, rcx  ; contador do loop
-    ; mov r15, 4096 ; condição de término do loop (dividido por 2 devido ao loop unrolling)
-    mov r15, 65536 ; 
+    mov r15, 4096 ; condição de término do loop (dividido por 2 devido ao loop unrolling)
 
 loop_start:
     ; SIMD: Carrega registradores YMM de 256 bits com dados de trace_bits

@@ -8198,12 +8198,10 @@ void profile_function() {
 
     clock_gettime(CLOCK_MONOTONIC, &start);
     for (int i = 0; i < iterations; i++) {
-      hnb_2 = has_new_bits_asm(trace_bits_2, virgin_bits_2, &bitmap_changed_2);
+      hnb_2 = has_new_bits_asm(trace_bits_2, virgin_bits_2, &bitmap_changed_2);      
       
       // call_has_new_bits_kernel(trace_bits_2, virgin_bits_2, &bitmap_changed_2);
-      
       // bitmap_changed_2 = has_new_bits_mthread(virgin_bits_2, NUM_THREADS, pool);
-
       // hnb_2 = has_new_bits_simd(trace_bits_2, virgin_bits_2, &bitmap_changed_2);
     }
     clock_gettime(CLOCK_MONOTONIC, &end);

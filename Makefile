@@ -88,7 +88,7 @@ has_new_bits_simd.o: has_new_bits_simd.c
 kernel.o: kernel.cu 
 	nvcc -G -arch=sm_75 -c $< -o $@ $(LDFLAGS)
 
-has_new_bits_improved.o: has_new_bits_improved.asm
+has_new_bits_improved.o: has_new_bits_improved_avx2.asm
 	nasm -O3 -f elf64 $< -o $@
 
 thpool.o: thpool.c 

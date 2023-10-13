@@ -8,10 +8,9 @@ global has_new_bits_asm
 
 has_new_bits_asm:
     ; Inicializa o contador i
-    mov ecx, 8192   ; 16
-    ; mov ecx, 262144   ; 18
-    ; mov ecx, 131072 ; 20
-    shr ecx, 3
+    ; mov ecx, 8192    ; 16
+    ; mov ecx, 32768   ; 18
+    ; mov ecx, 131072  ; 20
 
     ; Inicializa ret = 0
     xor r8b, r8b          ; r8b = ret
