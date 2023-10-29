@@ -27,14 +27,14 @@ MISC_PATH   = $(PREFIX)/share/afl
 PROGS       = afl-gcc afl-fuzz afl-showmap afl-tmin afl-gotcpu afl-analyze
 SH_PROGS    = afl-plot afl-cmin afl-whatsup
 
-CFLAGS     ?= -O3 -funroll-loops
+CFLAGS     ?= -O3 -funroll-loops 
 CFLAGS     += -Wall -D_FORTIFY_SOURCE=2 -g -pg -Wno-pointer-sign \
 	      -DAFL_PATH=\"$(HELPER_PATH)\" -DDOC_PATH=\"$(DOC_PATH)\" \
 	      -DBIN_PATH=\"$(BIN_PATH)\"
 CFLAGS     += -I/usr/local/cuda/include	
 
 LDFLAGS += -pg
-LDFLAGS += -L/usr/local/cuda/lib64 -lcudart
+LDFLAGS += -L/usr/local/cuda/lib64 -lcudart -lm
 
 ifneq "$(filter Linux GNU%,$(shell uname))" ""
   LDFLAGS  += -ldl

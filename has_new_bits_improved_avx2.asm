@@ -1,12 +1,12 @@
 section .text
-global has_new_bits_asm
+global has_new_bits_asm_optimz
 
 ; Argumentos:
 ; rdi = u8* trace_bits
 ; rsi = u8* virgin_bits
 ; rdx = u8* bitmap_changed
 
-has_new_bits_asm:
+has_new_bits_asm_optimz:
     ; Inicializa o contador i
     mov ecx, 8192    ; 16
     ; mov ecx, 16384   ; 17
@@ -15,10 +15,10 @@ has_new_bits_asm:
     ; mov ecx, 131072  ; 20
 
     ; Inicializa ret = 0
-    xor r8b, r8b          ; r8b = ret
+    xor r8b, r8b       
 
 .loop:
-    ; Prefetching - carrega os próximos dados em cache
+    ; Prefetching - Carrega os dados da próxima e da subsequente iteração em cache
     prefetchnta [rdi + 512]
     prefetchnta [rsi + 512]
 
