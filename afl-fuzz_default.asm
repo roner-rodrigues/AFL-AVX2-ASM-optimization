@@ -5781,6 +5781,7 @@ Disassembly of section .text:
     9877:	eb a3                	jmp    981c <has_new_bits.constprop.0+0x37c>
     9879:	0f 1f 80 00 00 00 00 	nop    DWORD PTR [rax+0x0]
 
+
 0000000000009880 <add_to_queue>:
     9880:	55                   	push   rbp
     9881:	48 89 e5             	mov    rbp,rsp

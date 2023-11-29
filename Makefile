@@ -76,11 +76,15 @@ afl-as: afl-as.c afl-as.h $(COMM_HDR) | test_x86
 # afl-fuzz: afl-fuzz.c $(COMM_HDR) | test_x86
 # 	$(CC) $(CFLAGS) $@.c -o $@ $(LDFLAGS)
 
-afl-fuzz: afl-fuzz.o has_new_bits_simd.o has_new_bits_improved.o kernel.o thpool.o | test_x86
-	$(CC) $(CFLAGS) afl-fuzz.o has_new_bits_simd.o has_new_bits_improved.o kernel.o thpool.o -o $@ $(LDFLAGS)
+afl-fuzz: afl-fuzz.o has_new_bits_improved_avx2.o | test_x86
+	$(CC) $(CFLAGS) afl-fuzz.o has_new_bits_improved_avx2.o -o $@ $(LDFLAGS)
 
-afl-fuzz.o: afl-fuzz.c $(COMM_HDR) kernel.h thpool.h has_new_bits_simd.h
+afl-fuzz.o: afl-fuzz.c $(COMM_HDR)
 	$(CC) $(CFLAGS) -c $< -o $@
+
+has_new_bits_improved_avx2.o: has_new_bits_improved_avx2_2.asm
+	nasm -O3 -f elf64 $< -o $@
+
 
 has_new_bits_simd.o: has_new_bits_simd.c
 	$(CC) $(CFLAGS) -mavx2 -c $< -o $@
@@ -88,13 +92,8 @@ has_new_bits_simd.o: has_new_bits_simd.c
 kernel.o: kernel.cu 
 	nvcc -G -arch=sm_75 -c $< -o $@ $(LDFLAGS)
 
-has_new_bits_improved.o: has_new_bits_improved_avx2.asm
-	nasm -O3 -f elf64 $< -o $@
-
 thpool.o: thpool.c 
 	$(CC) -c $< -o $@ -lpthreads
-
-
 
 afl-showmap: afl-showmap.c $(COMM_HDR) | test_x86
 	$(CC) $(CFLAGS) $@.c -o $@ $(LDFLAGS)

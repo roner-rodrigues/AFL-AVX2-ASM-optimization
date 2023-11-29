@@ -7747,7 +7747,7 @@ int main(int argc, char** argv) {
   struct timeval tv;
   struct timezone tz;
 
-  setup_device_memory();
+  // setup_device_memory();
 
   SAYF(cCYA "afl-fuzz " cBRI VERSION cRST " by <lcamtuf@google.com>\n");
 
@@ -8162,7 +8162,7 @@ void profile_function() {
     struct timespec start, end;
     double t1[100000] = {0}, t2[100000] = {0}; 
     double mean_orig = 0, mean_otimz = 0;
-    double sd_orig = 0, sd_otimz = 0;
+    double sd_orig = 0, sd_otimz = 0, variance_orig = 0, variance_otimz = 0;
     double t_orig[100], t_otimz[100];
     int iterations;
     u8 hnb, hnb_2;
@@ -8180,10 +8180,11 @@ void profile_function() {
       exit(1);
     }
 
+    hnb_2 = hnb;
     bitmap_changed_2 = bitmap_changed;
     memcpy(virgin_bits_2, virgin_bits, MAP_SIZE);
     memcpy(trace_bits_2, trace_bits, MAP_SIZE);
-
+    
     for (iterations = 1; iterations <= 100000; iterations *= 10) {
         mean_orig = 0;
         mean_otimz = 0;
@@ -8193,6 +8194,7 @@ void profile_function() {
             clock_gettime(CLOCK_MONOTONIC, &start);
             hnb = has_new_bits(virgin_bits);
             clock_gettime(CLOCK_MONOTONIC, &end);
+            
             t1[i] = (end.tv_sec - start.tv_sec) + (end.tv_nsec - start.tv_nsec) / 1e9;
             mean_orig += t1[i];
         }
@@ -8203,6 +8205,7 @@ void profile_function() {
             clock_gettime(CLOCK_MONOTONIC, &start);
             hnb_2 = has_new_bits_asm_optimz(trace_bits_2, virgin_bits_2, &bitmap_changed_2);
             clock_gettime(CLOCK_MONOTONIC, &end);
+
             t2[i] = (end.tv_sec - start.tv_sec) + (end.tv_nsec - start.tv_nsec) / 1e9;
             mean_otimz += t2[i];
         }
@@ -8214,26 +8217,37 @@ void profile_function() {
             sd_otimz += (t2[i] - mean_otimz) * (t2[i] - mean_otimz);
         }
 
-        sd_orig = sqrt(sd_orig / iterations);
-        sd_otimz = sqrt(sd_otimz / iterations);
+        // Calculating variance
+        variance_orig  = sd_orig / iterations;
+        variance_otimz = sd_otimz / iterations;
 
+        // Calculating standard deviation
+        sd_orig  = sqrt(variance_orig);
+        sd_otimz = sqrt(variance_otimz);
+      
         t_orig[index] = mean_orig;
         t_otimz[index] = mean_otimz;
 
-        printf("has_new_bits [ORIG] iteração %d:\t\t %.9f segundos (Desvio Padrão: %.9f)\n", iterations, t_orig[index], sd_orig);
-        printf("has_new_bits [OPTM] iteração %d:\t\t %.9f segundos (Desvio Padrão: %.9f)\n\n", iterations, t_otimz[index], sd_otimz);
+        printf("has_new_bits [ORIG] iteração %d:\t %.9f segundos (Desvio Padrão: %.9f) (Variância: %.9f)\n", iterations, t_orig[index], sd_orig, variance_orig);
+        printf("has_new_bits [OPTM] iteração %d:\t %.9f segundos (Desvio Padrão: %.9f) (Variância: %.9f)\n\n", iterations, t_otimz[index], sd_otimz, variance_otimz);
 
         index++;
-  }
+    } 
 
-    int virgin_bits_ok = !memcmp(virgin_bits, virgin_bits_2, MAP_SIZE);
-    int trace_bits_ok = !memcmp(trace_bits, trace_bits_2, MAP_SIZE);
-    int hnb_ok = (hnb == hnb_2) ? 1 : 0;
+    int virgin_bits_ok    = !memcmp(virgin_bits, virgin_bits_2, MAP_SIZE);
+    int trace_bits_ok     = !memcmp(trace_bits, trace_bits_2, MAP_SIZE);
+    int hnb_ok            = (hnb == hnb_2) ? 1 : 0;
     int bitmap_changed_ok = (bitmap_changed == bitmap_changed_2) ? 1 : 0;
 
-    printf("\nvirgin_bits_ok    = %d", virgin_bits_ok);
+    // for(int i = 0; i < MAP_SIZE; ++i) {
+    //     printf("%u ", virgin_bits_2[i]); 
+    // }
+    // printf("\n\n");
     printf("\ntrace_bits_ok     = %d", trace_bits_ok);
+    printf("\nvirgin_bits_ok    = %d", virgin_bits_ok);
     printf("\nhnb_ok            = %d", hnb_ok);
+    printf("\nhnb_1             = %d", hnb);
+    printf("\nhnb_2             = %d", hnb_2);
     printf("\nbitmap_changed_ok = %d\n", bitmap_changed_ok);
 
     free(virgin_bits_2);
@@ -8241,45 +8255,6 @@ void profile_function() {
     exit(0);
 }
 /* ************************************************************************************ */
-
-// // ORIGINAL
-// clock_gettime(CLOCK_MONOTONIC, &start);
-// for (int i = 0; i < iterations; i++) {
-//   hnb = has_new_bits(virgin_bits);
-// }
-// clock_gettime(CLOCK_MONOTONIC, &end);
-
-// t1 = (end.tv_sec - start.tv_sec) + 
-//      (end.tv_nsec - start.tv_nsec) / 1e9; 
-// t1 /= iterations; 
-
-// // OTIMIZADO
-// clock_gettime(CLOCK_MONOTONIC, &start);
-// for (int i = 0; i < iterations; i++) {
-//   hnb_2 = has_new_bits_asm_optimz(trace_bits_2, virgin_bits_2, &bitmap_changed_2);      
-// }
-// clock_gettime(CLOCK_MONOTONIC, &end);
-
-// t2 = (end.tv_sec - start.tv_sec) + 
-//      (end.tv_nsec - start.tv_nsec) / 1e9; 
-// t2 /= iterations;
-
-// printf("has_new_bits [ORIG]: %.9f segundos\n", t1);
-// printf("has_new_bits [OPTM]: %.9f segundos\n", t2);
-
-
-// printf("\nhnb               = %d", hnb);
-// printf("\nhnb_2             = %d", hnb_2);
-// printf("\nbitmap_changed    = %d", bitmap_changed);
-// printf("\nbitmap_changed_2  = %d", bitmap_changed_2);
-// printf("\n");
-
-
-
-
-
-
-
 
 // void thread_has_new_bits(void* arg) {
 //     WorkData* data = (WorkData*)arg;
