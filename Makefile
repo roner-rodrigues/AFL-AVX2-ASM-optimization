@@ -82,7 +82,7 @@ afl-fuzz: afl-fuzz.o has_new_bits_improved_avx2.o | test_x86
 afl-fuzz.o: afl-fuzz.c $(COMM_HDR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-has_new_bits_improved_avx2.o: has_new_bits_improved_avx2_2.asm
+has_new_bits_improved_avx2.o: has_new_bits_improved_avx2_3.asm
 	nasm -O3 -f elf64 $< -o $@
 
 

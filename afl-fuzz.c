@@ -926,6 +926,7 @@ static u8 has_new_bits(u8* virgin_map) {
 
   u8   ret = 0;
 
+  // i = 8192, para bitmap de 64kb / 8 bytes_por_iteração
   while (i--) {
 
     /* Optimize for (*current & *virgin) == 0 - i.e., no bits in current bitmap
@@ -8185,7 +8186,7 @@ void profile_function() {
     memcpy(virgin_bits_2, virgin_bits, MAP_SIZE);
     memcpy(trace_bits_2, trace_bits, MAP_SIZE);
     
-    for (iterations = 1; iterations <= 100000; iterations *= 10) {
+    for (iterations = 1; iterations <= 1; iterations++) {
         mean_orig = 0;
         mean_otimz = 0;
 
@@ -8239,10 +8240,6 @@ void profile_function() {
     int hnb_ok            = (hnb == hnb_2) ? 1 : 0;
     int bitmap_changed_ok = (bitmap_changed == bitmap_changed_2) ? 1 : 0;
 
-    // for(int i = 0; i < MAP_SIZE; ++i) {
-    //     printf("%u ", virgin_bits_2[i]); 
-    // }
-    // printf("\n\n");
     printf("\ntrace_bits_ok     = %d", trace_bits_ok);
     printf("\nvirgin_bits_ok    = %d", virgin_bits_ok);
     printf("\nhnb_ok            = %d", hnb_ok);
